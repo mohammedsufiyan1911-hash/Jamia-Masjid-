@@ -10,8 +10,6 @@
 
 <style>
 
-/* GENERAL SETTINGS */
-
 * {
   margin: 0;
   padding: 0;
@@ -40,40 +38,32 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 25px 15px;
-  padding-bottom: max(30px, env(safe-area-inset-bottom));
-  overflow-y: auto;
+  padding: 20px;
   transition: opacity 2s ease;
 }
 
-/* MOSQUE IMAGE - INITIALLY DARK */
-
 .mosque {
-  width: 100%;
-  max-width: 850px;
-  margin: auto;
-  filter: brightness(0.08);
+  width: 85%;
+  max-width: 1000px;
+  overflow: hidden;
+  border-radius: 12px;
   transition: filter 3s ease;
 }
 
 .mosque img {
   width: 100%;
   max-height: 55vh;
-  height: auto;
   object-fit: contain;
   display: block;
-  border-radius: 12px;
-  box-shadow: 0 0 0 transparent;
+  filter: brightness(0.15);
+  transition: filter 3s ease;
 }
 
-/* LIGHTS TURN ON AFTER CLICK */
+/* LIGHT UP EFFECT */
 
-#intro.lit .mosque {
-  filter: brightness(1.15)
-    drop-shadow(0 0 30px #e5bd65);
+#intro.lit .mosque img {
+  filter: brightness(1.15);
 }
-
-/* HEADING */
 
 #intro h1 {
   color: #e8d5a5;
@@ -82,8 +72,6 @@ body {
   margin: 25px 0 20px;
   text-shadow: 0 0 15px #c6a96b;
 }
-
-/* ENTER BUTTON */
 
 #enter {
   background: transparent;
@@ -101,15 +89,11 @@ body {
 #enter:hover {
   background: #d6b56b;
   color: #07130e;
-  box-shadow: 0 0 30px #d6b56b;
 }
 
 #enter:disabled {
   opacity: 0.8;
-  cursor: default;
 }
-
-/* INTRO DISAPPEARS */
 
 #intro.hide {
   opacity: 0;
@@ -201,14 +185,36 @@ section p {
   line-height: 1.9;
 }
 
-/* PRAYER TIMINGS */
+/* NAMAZ TIMINGS */
 
 .prayers {
   background: #e9e4d6;
+  border: 1px solid #d6c69f;
   border-radius: 15px;
   padding: 25px;
-  line-height: 2.5;
   margin-top: 20px;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.prayer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 8px;
+  border-bottom: 1px solid #d1c8b4;
+  color: #173d32;
+  font-size: 17px;
+}
+
+.prayer-row:last-child {
+  border-bottom: none;
+}
+
+.prayer-row span:last-child {
+  color: #80652e;
+  font-weight: bold;
 }
 
 /* DONATION SECTION */
@@ -245,17 +251,16 @@ footer {
   line-height: 2;
 }
 
-/* MOBILE SETTINGS */
+/* MOBILE */
 
 @media (max-width: 600px) {
 
   #intro {
     padding: 15px;
-    padding-bottom: max(30px, env(safe-area-inset-bottom));
   }
 
   .mosque {
-    max-width: 100%;
+    width: 100%;
   }
 
   #intro h1 {
@@ -271,6 +276,10 @@ footer {
     padding: 40px 18px;
   }
 
+  .prayer-row {
+    font-size: 15px;
+  }
+
 }
 
 </style>
@@ -278,17 +287,13 @@ footer {
 
 <body>
 
-<!-- DARK OPENING SCREEN -->
+<!-- OPENING SCREEN -->
 
 <div id="intro">
 
   <div class="mosque">
-
-    <img
-      src="https://raw.githubusercontent.com/mohammedsufiyan1911-hash/Jamia-Masjid-/main/masjid-night.png"
-      alt="Jamia Masjid at night"
-    >
-
+    <img src="masjid-night.png"
+         alt="Jamia Masjid at night">
   </div>
 
   <h1>JAMIA MASJID</h1>
@@ -299,38 +304,24 @@ footer {
 
 </div>
 
-
 <!-- MAIN WEBSITE -->
 
 <div id="website">
 
   <header>
-
     <h1>JAMIA MASJID</h1>
-
-    <p>
-      A place of prayer, peace and community
-    </p>
-
+    <p>A place of prayer, peace and community</p>
   </header>
-
 
   <!-- NAVIGATION -->
 
   <nav>
-
     <a href="#about">About</a>
-
-    <a href="#prayer">Prayer Times</a>
-
+    <a href="#prayer">Namaz Times</a>
     <a href="#facilities">Facilities</a>
-
     <a href="#donate">Donate</a>
-
     <a href="#contact">Contact</a>
-
   </nav>
-
 
   <!-- ABOUT -->
 
@@ -350,45 +341,49 @@ footer {
 
   </section>
 
-
-  <!-- PRAYER TIMINGS -->
+  <!-- NAMAZ TIMINGS -->
 
   <section id="prayer">
 
-    <h2>Daily Prayer Timings</h2>
+    <h2>Daily Namaz Timings</h2>
 
-    <p>
-      Join us for daily prayers.
-    </p>
+    <p>Join us for daily prayers.</p>
 
     <div class="prayers">
 
-      Fajr — 05:45 AM
+      <div class="prayer-row">
+        <span>Fajr</span>
+        <span>05:45 AM</span>
+      </div>
 
-      <br>
+      <div class="prayer-row">
+        <span>Dhuhr</span>
+        <span>01:30 PM</span>
+      </div>
 
-      Dhuhr — 01:30 PM
+      <div class="prayer-row">
+        <span>Asr</span>
+        <span>04:45 PM</span>
+      </div>
 
-      <br>
+      <div class="prayer-row">
+        <span>Maghrib</span>
+        <span>05:57 PM</span>
+      </div>
 
-      Asr — 04:45 PM
+      <div class="prayer-row">
+        <span>Isha</span>
+        <span>08:30 PM</span>
+      </div>
 
-      <br>
-
-      Maghrib — 05:57 PM
-
-      <br>
-
-      Isha — 08:30 PM
-
-      <br>
-
-      Jumu'ah — 02:00 PM
+      <div class="prayer-row">
+        <span>Jumu'ah</span>
+        <span>02:00 PM</span>
+      </div>
 
     </div>
 
   </section>
-
 
   <!-- FACILITIES -->
 
@@ -404,7 +399,6 @@ footer {
 
   </section>
 
-
   <!-- DONATIONS -->
 
   <section id="donate">
@@ -419,13 +413,9 @@ footer {
       </p>
 
       <div class="qr">
-
         OFFICIAL UPI QR CODE
-
         <br><br>
-
         To be added
-
       </div>
 
       <p>
@@ -436,42 +426,27 @@ footer {
 
   </section>
 
-
   <!-- CONTACT -->
 
   <section id="contact">
 
     <h2>Contact Us</h2>
 
-    <p>
-      Address: To be updated
-    </p>
-
-    <p>
-      Contact: To be updated
-    </p>
-
-    <p>
-      Google Maps: To be added
-    </p>
+    <p>Address: To be updated</p>
+    <p>Contact: To be updated</p>
+    <p>Google Maps: To be added</p>
 
   </section>
-
 
   <!-- FOOTER -->
 
   <footer>
-
     JAMIA MASJID
-
     <br>
-
     May Allah bless our community.
-
   </footer>
 
 </div>
-
 
 <!-- ENTER BUTTON ANIMATION -->
 
@@ -479,47 +454,30 @@ footer {
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  const enterButton =
-    document.getElementById("enter");
-
-  const intro =
-    document.getElementById("intro");
-
-  const website =
-    document.getElementById("website");
-
-  if (!enterButton || !intro || !website) {
-    console.error("Website elements missing!");
-    return;
-  }
+  const enterButton = document.getElementById("enter");
+  const intro = document.getElementById("intro");
+  const website = document.getElementById("website");
 
   enterButton.addEventListener("click", function () {
 
     enterButton.disabled = true;
+    enterButton.textContent = "WELCOME TO JAMIA MASJID";
 
-    enterButton.textContent =
-      "WELCOME TO JAMIA MASJID";
-
-    // TURN ON MOSQUE LIGHTS
+    // Light up the mosque
 
     intro.classList.add("lit");
 
-    // REVEAL HOMEPAGE AFTER 3 SECONDS
+    // Show homepage
 
     setTimeout(function () {
-
       intro.classList.add("hide");
-
       website.classList.add("show");
-
     }, 3000);
 
-    // REMOVE OPENING SCREEN
+    // Remove opening screen
 
     setTimeout(function () {
-
       intro.style.display = "none";
-
     }, 5200);
 
   });
