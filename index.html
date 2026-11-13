@@ -35,20 +35,21 @@ body {
 }
 
 .mosque {
-  width: min(90vw, 440px);
-  filter: brightness(0.12);
+  width: min(92vw, 850px);
+  filter: brightness(0.08);
   transition: filter 3s ease;
 }
 
-.mosque svg {
+.mosque img {
   width: 100%;
+  display: block;
+  border-radius: 10px;
 }
 
 #intro.lit .mosque {
-  filter: brightness(1.5)
+  filter: brightness(1.05)
     drop-shadow(0 0 25px #d6b56b);
 }
-
 #intro h1 {
   color: #e6d5a6;
   letter-spacing: 4px;
@@ -176,7 +177,19 @@ footer {
 
 <body>
 
-<!-- DARK OPENING SCREEN -->
+  <!-- DARK OPENING SCREEN -->
+<div id="intro">
+
+  <div class="mosque">
+    <img src="masjid-night.png"
+         alt="Jamia Masjid illuminated at night">
+  </div>
+
+  <h1>JAMIA MASJID</h1>
+
+  <button id="enter">TAP TO ENTER ✦</button>
+
+</div>
 <div id="intro">
 
   <div class="mosque">
