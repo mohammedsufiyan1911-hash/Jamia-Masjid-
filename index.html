@@ -1,16 +1,25 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Masjid</title>
+
+<title>Jamia Masjid</title>
 
 <style>
+
+/* GENERAL SETTINGS */
+
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -19,58 +28,76 @@ body {
   color: #173d32;
 }
 
-/* Opening screen */
+/* OPENING SCREEN */
+
 #intro {
   position: fixed;
   inset: 0;
-  z-index: 10;
-  background: #020806;
+  z-index: 100;
+  background: #020604;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   text-align: center;
   padding: 20px;
+  overflow-y: auto;
   transition: opacity 2s ease;
 }
 
 .mosque {
-  width: min(92vw, 850px);
+  width: 100%;
+  max-width: 850px;
+  margin: auto;
   filter: brightness(0.08);
   transition: filter 3s ease;
 }
 
 .mosque img {
   width: 100%;
+  height: auto;
   display: block;
-  border-radius: 10px;
+  border-radius: 12px;
+  box-shadow: 0 0 0 transparent;
 }
 
+/* MOSQUE LIGHTING EFFECT */
+
 #intro.lit .mosque {
-  filter: brightness(1.05)
-    drop-shadow(0 0 25px #d6b56b);
+  filter: brightness(1.15)
+    drop-shadow(0 0 30px #e5bd65);
 }
+
 #intro h1 {
-  color: #e6d5a6;
-  letter-spacing: 4px;
-  margin: 20px 0;
-  font-size: 25px;
+  color: #e8d5a5;
+  font-size: clamp(22px, 5vw, 34px);
+  letter-spacing: 5px;
+  margin: 25px 0 20px;
+  text-shadow: 0 0 15px #c6a96b;
 }
 
 #enter {
   background: transparent;
-  color: #e6d5a6;
-  border: 1px solid #c6a96b;
-  padding: 14px 30px;
-  border-radius: 30px;
+  border: 1px solid #d6b56b;
+  color: #e8d5a5;
+  padding: 15px 35px;
+  border-radius: 40px;
   font-size: 15px;
+  letter-spacing: 3px;
   cursor: pointer;
-  letter-spacing: 2px;
+  box-shadow: 0 0 15px #c6a96b55;
+  transition: 0.4s;
 }
 
 #enter:hover {
-  background: #c6a96b;
+  background: #d6b56b;
   color: #07130e;
+  box-shadow: 0 0 30px #d6b56b;
+}
+
+#enter:disabled {
+  opacity: 0.8;
+  cursor: default;
 }
 
 #intro.hide {
@@ -78,7 +105,8 @@ body {
   pointer-events: none;
 }
 
-/* Main website */
+/* MAIN WEBSITE */
+
 #website {
   display: none;
 }
@@ -89,223 +117,403 @@ body {
 }
 
 @keyframes appear {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
+/* HEADER */
 
 header {
   background: #173d32;
   color: #f3e6c4;
-  padding: 35px 20px;
   text-align: center;
+  padding: 55px 20px;
 }
 
 header h1 {
-  font-size: 30px;
-  margin-bottom: 10px;
+  font-size: clamp(28px, 6vw, 42px);
+  letter-spacing: 4px;
+  margin-bottom: 12px;
 }
+
+header p {
+  color: #e3d4ae;
+}
+
+/* NAVIGATION */
 
 nav {
   background: #102e25;
-  padding: 15px 8px;
+  padding: 17px 10px;
   text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 5;
 }
 
 nav a {
   color: #fff0ce;
   text-decoration: none;
-  margin: 8px;
-  font-size: 13px;
+  display: inline-block;
+  margin: 5px 9px;
+  font-size: 14px;
 }
 
+nav a:hover {
+  color: #e5bd65;
+}
+
+/* SECTIONS */
+
 section {
-  padding: 45px 22px;
-  max-width: 850px;
+  padding: 55px 22px;
+  max-width: 900px;
   margin: auto;
   text-align: center;
 }
 
 section h2 {
-  margin-bottom: 18px;
+  font-size: 27px;
   color: #173d32;
+  margin-bottom: 20px;
 }
 
 section p {
-  line-height: 1.8;
   color: #555;
+  line-height: 1.9;
 }
+
+/* PRAYER TIMINGS */
 
 .prayers {
   background: #e9e4d6;
   border-radius: 15px;
-  padding: 22px;
-  line-height: 2.3;
+  padding: 25px;
+  line-height: 2.5;
   margin-top: 20px;
 }
+
+/* DONATION SECTION */
 
 .donate {
   background: #173d32;
   color: white;
-  padding: 35px 20px;
+  padding: 40px 20px;
   border-radius: 18px;
   margin-top: 20px;
 }
 
 .donate h2,
 .donate p {
-  color: white;
+  color: #fff0ce;
 }
 
 .qr {
-  background: #fff;
+  background: white;
   color: #555;
   padding: 35px 10px;
-  margin: 20px auto;
-  max-width: 220px;
+  margin: 25px auto;
+  max-width: 230px;
   border-radius: 12px;
 }
+
+/* FOOTER */
 
 footer {
   background: #102e25;
   color: #eee0bd;
   text-align: center;
-  padding: 25px;
+  padding: 30px 15px;
   line-height: 2;
 }
+
+/* MOBILE SETTINGS */
+
+@media (max-width: 600px) {
+
+  #intro {
+    padding: 15px;
+  }
+
+  .mosque {
+    max-width: 100%;
+  }
+
+  #intro h1 {
+    letter-spacing: 3px;
+  }
+
+  nav a {
+    font-size: 12px;
+    margin: 5px;
+  }
+
+  section {
+    padding: 40px 18px;
+  }
+
+}
+
 </style>
 </head>
 
 <body>
 
-  <!-- DARK OPENING SCREEN -->
+<!-- DARK OPENING SCREEN -->
+
 <div id="intro">
 
   <div class="mosque">
-    <img src="masjid-night.png"
-         alt="Jamia Masjid illuminated at night">
+
+    <img
+      src="masjid-night.png"
+      alt="Jamia Masjid at night"
+    >
+
   </div>
 
   <h1>JAMIA MASJID</h1>
 
-  <button id="enter">TAP TO ENTER ✦</button>
+  <button id="enter">
+    TAP TO ENTER ✦
+  </button>
 
 </div>
-<div id="intro">
 
-  <div class="mosque">
-    <svg viewBox="0 0 400 280"
-      xmlns="http://www.w3.org/2000/svg">
-
-      <g fill="#e4c77e">
-        <path d="M120 115 Q200 -5 280 115 Z"/>
-        <rect x="110" y="115" width="180" height="110"/>
-        <rect x="25" y="100" width="35" height="125"/>
-        <path d="M25 100 L42.5 55 L60 100 Z"/>
-        <rect x="340" y="100" width="35" height="125"/>
-        <path d="M340 100 L357.5 55 L375 100 Z"/>
-        <rect x="185" y="165" width="30" height="60"
-          fill="#173d32"/>
-        <path d="M185 165 Q200 135 215 165"
-          fill="#173d32"/>
-      </g>
-
-      <circle cx="200" cy="12" r="7" fill="#f5d98c"/>
-      <path d="M200 0 V-15" stroke="#f5d98c"
-        stroke-width="2"/>
-    </svg>
-  </div>
-
-  <h1>WELCOME TO OUR MASJID</h1>
-  <button id="enter">TAP TO ENTER ✦</button>
-</div>
 
 <!-- MAIN WEBSITE -->
+
 <div id="website">
 
-<header>
-  <h1>OUR MASJID</h1>
-  <p>A place of prayer, peace and community</p>
-</header>
+  <header>
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#prayer">Prayer Times</a>
-  <a href="#donate">Donate</a>
-  <a href="#contact">Contact</a>
-</nav>
+    <h1>JAMIA MASJID</h1>
 
-<section id="about">
-  <h2>About Our Masjid</h2>
-  <p>
-    Welcome to our Masjid. A place dedicated to worship,
-    learning, unity and serving our community.
-    More information about our Masjid will be added here.
-  </p>
-</section>
+    <p>
+      A place of prayer, peace and community
+    </p>
 
-<section id="prayer">
-  <h2>Daily Prayer Timings</h2>
-  <div class="prayers">
-    Fajr — To be updated<br>
-    Dhuhr — To be updated<br>
-    Asr — To be updated<br>
-    Maghrib — To be updated<br>
-    Isha — To be updated<br>
-    Jumu'ah — To be updated
-  </div>
-</section>
+  </header>
 
-<section>
-  <h2>Our Facilities</h2>
-  <p>
-    Details about prayer facilities, Islamic education
-    and community activities will appear here.
-  </p>
-</section>
 
-<section id="donate">
-  <div class="donate">
-    <h2>Support Our Masjid</h2>
-    <p>Your contributions help support our Masjid
-      and its activities.</p>
+  <!-- NAVIGATION -->
 
-    <div class="qr">
-      OFFICIAL UPI QR CODE
-      <br><br>
-      To be added
+  <nav>
+
+    <a href="#about">About</a>
+
+    <a href="#prayer">Prayer Times</a>
+
+    <a href="#facilities">Facilities</a>
+
+    <a href="#donate">Donate</a>
+
+    <a href="#contact">Contact</a>
+
+  </nav>
+
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <h2>About Our Masjid</h2>
+
+    <p>
+      Welcome to Jamia Masjid.
+
+      A place dedicated to worship, learning,
+      unity and serving our Muslim community.
+
+      More information about our Masjid will
+      be added here.
+    </p>
+
+  </section>
+
+
+  <!-- PRAYER TIMINGS -->
+
+  <section id="prayer">
+
+    <h2>Daily Prayer Timings</h2>
+
+    <p>
+      Join us for daily prayers.
+    </p>
+
+    <div class="prayers">
+
+      Fajr — To be updated
+
+      <br>
+
+      Dhuhr — To be updated
+
+      <br>
+
+      Asr — To be updated
+
+      <br>
+
+      Maghrib — To be updated
+
+      <br>
+
+      Isha — To be updated
+
+      <br>
+
+      Jumu'ah — To be updated
+
     </div>
 
-    <p>May Allah reward you for your generosity.</p>
-  </div>
-</section>
+  </section>
 
-<section id="contact">
-  <h2>Contact Us</h2>
-  <p>Address: To be updated</p>
-  <p>Contact: To be updated</p>
-  <p>Google Maps: To be added</p>
-</section>
 
-<footer>
-  OUR MASJID<br>
-  May Allah bless our community.
-</footer>
+  <!-- FACILITIES -->
+
+  <section id="facilities">
+
+    <h2>Our Facilities</h2>
+
+    <p>
+      Details about prayer facilities,
+      Islamic education and community
+      activities will appear here.
+    </p>
+
+  </section>
+
+
+  <!-- DONATIONS -->
+
+  <section id="donate">
+
+    <div class="donate">
+
+      <h2>Support Our Masjid</h2>
+
+      <p>
+        Your generous contributions help
+        support our Masjid and its activities.
+      </p>
+
+      <div class="qr">
+
+        OFFICIAL UPI QR CODE
+
+        <br><br>
+
+        To be added
+
+      </div>
+
+      <p>
+        May Allah reward you for your generosity.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <h2>Contact Us</h2>
+
+    <p>
+      Address: To be updated
+    </p>
+
+    <p>
+      Contact: To be updated
+    </p>
+
+    <p>
+      Google Maps: To be added
+    </p>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    JAMIA MASJID
+
+    <br>
+
+    May Allah bless our community.
+
+  </footer>
 
 </div>
 
+
+<!-- ENTER BUTTON ANIMATION -->
+
 <script>
-document.getElementById("enter").addEventListener("click",
-function() {
-  const intro = document.getElementById("intro");
-  const website = document.getElementById("website");
 
-  intro.classList.add("lit");
+document.addEventListener("DOMContentLoaded", function () {
 
-  setTimeout(function() {
-    intro.classList.add("hide");
-    website.classList.add("show");
-  }, 3000);
+  const enterButton =
+    document.getElementById("enter");
+
+  const intro =
+    document.getElementById("intro");
+
+  const website =
+    document.getElementById("website");
+
+  if (!enterButton || !intro || !website) {
+    console.error("Website elements missing!");
+    return;
+  }
+
+  enterButton.addEventListener("click", function () {
+
+    enterButton.disabled = true;
+
+    enterButton.textContent =
+      "WELCOME TO JAMIA MASJID";
+
+    // Turn on mosque lights
+
+    intro.classList.add("lit");
+
+    // Reveal homepage after 3 seconds
+
+    setTimeout(function () {
+
+      intro.classList.add("hide");
+
+      website.classList.add("show");
+
+    }, 3000);
+
+    // Remove opening screen
+
+    setTimeout(function () {
+
+      intro.style.display = "none";
+
+    }, 5200);
+
+  });
+
 });
+
 </script>
 
 </body>
