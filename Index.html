@@ -1,1 +1,299 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Masjid</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, serif;
+  background: #f7f3e9;
+  color: #173d32;
+}
+
+/* Opening screen */
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: #020806;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  transition: opacity 2s ease;
+}
+
+.mosque {
+  width: min(90vw, 440px);
+  filter: brightness(0.12);
+  transition: filter 3s ease;
+}
+
+.mosque svg {
+  width: 100%;
+}
+
+#intro.lit .mosque {
+  filter: brightness(1.5)
+    drop-shadow(0 0 25px #d6b56b);
+}
+
+#intro h1 {
+  color: #e6d5a6;
+  letter-spacing: 4px;
+  margin: 20px 0;
+  font-size: 25px;
+}
+
+#enter {
+  background: transparent;
+  color: #e6d5a6;
+  border: 1px solid #c6a96b;
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  letter-spacing: 2px;
+}
+
+#enter:hover {
+  background: #c6a96b;
+  color: #07130e;
+}
+
+#intro.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Main website */
+#website {
+  display: none;
+}
+
+#website.show {
+  display: block;
+  animation: appear 2s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+header {
+  background: #173d32;
+  color: #f3e6c4;
+  padding: 35px 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+nav {
+  background: #102e25;
+  padding: 15px 8px;
+  text-align: center;
+}
+
+nav a {
+  color: #fff0ce;
+  text-decoration: none;
+  margin: 8px;
+  font-size: 13px;
+}
+
+section {
+  padding: 45px 22px;
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+}
+
+section h2 {
+  margin-bottom: 18px;
+  color: #173d32;
+}
+
+section p {
+  line-height: 1.8;
+  color: #555;
+}
+
+.prayers {
+  background: #e9e4d6;
+  border-radius: 15px;
+  padding: 22px;
+  line-height: 2.3;
+  margin-top: 20px;
+}
+
+.donate {
+  background: #173d32;
+  color: white;
+  padding: 35px 20px;
+  border-radius: 18px;
+  margin-top: 20px;
+}
+
+.donate h2,
+.donate p {
+  color: white;
+}
+
+.qr {
+  background: #fff;
+  color: #555;
+  padding: 35px 10px;
+  margin: 20px auto;
+  max-width: 220px;
+  border-radius: 12px;
+}
+
+footer {
+  background: #102e25;
+  color: #eee0bd;
+  text-align: center;
+  padding: 25px;
+  line-height: 2;
+}
+</style>
+</head>
+
+<body>
+
+<!-- DARK OPENING SCREEN -->
+<div id="intro">
+
+  <div class="mosque">
+    <svg viewBox="0 0 400 280"
+      xmlns="http://www.w3.org/2000/svg">
+
+      <g fill="#e4c77e">
+        <path d="M120 115 Q200 -5 280 115 Z"/>
+        <rect x="110" y="115" width="180" height="110"/>
+        <rect x="25" y="100" width="35" height="125"/>
+        <path d="M25 100 L42.5 55 L60 100 Z"/>
+        <rect x="340" y="100" width="35" height="125"/>
+        <path d="M340 100 L357.5 55 L375 100 Z"/>
+        <rect x="185" y="165" width="30" height="60"
+          fill="#173d32"/>
+        <path d="M185 165 Q200 135 215 165"
+          fill="#173d32"/>
+      </g>
+
+      <circle cx="200" cy="12" r="7" fill="#f5d98c"/>
+      <path d="M200 0 V-15" stroke="#f5d98c"
+        stroke-width="2"/>
+    </svg>
+  </div>
+
+  <h1>WELCOME TO OUR MASJID</h1>
+  <button id="enter">TAP TO ENTER ✦</button>
+</div>
+
+<!-- MAIN WEBSITE -->
+<div id="website">
+
+<header>
+  <h1>OUR MASJID</h1>
+  <p>A place of prayer, peace and community</p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#prayer">Prayer Times</a>
+  <a href="#donate">Donate</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <h2>About Our Masjid</h2>
+  <p>
+    Welcome to our Masjid. A place dedicated to worship,
+    learning, unity and serving our community.
+    More information about our Masjid will be added here.
+  </p>
+</section>
+
+<section id="prayer">
+  <h2>Daily Prayer Timings</h2>
+  <div class="prayers">
+    Fajr — To be updated<br>
+    Dhuhr — To be updated<br>
+    Asr — To be updated<br>
+    Maghrib — To be updated<br>
+    Isha — To be updated<br>
+    Jumu'ah — To be updated
+  </div>
+</section>
+
+<section>
+  <h2>Our Facilities</h2>
+  <p>
+    Details about prayer facilities, Islamic education
+    and community activities will appear here.
+  </p>
+</section>
+
+<section id="donate">
+  <div class="donate">
+    <h2>Support Our Masjid</h2>
+    <p>Your contributions help support our Masjid
+      and its activities.</p>
+
+    <div class="qr">
+      OFFICIAL UPI QR CODE
+      <br><br>
+      To be added
+    </div>
+
+    <p>May Allah reward you for your generosity.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>Address: To be updated</p>
+  <p>Contact: To be updated</p>
+  <p>Google Maps: To be added</p>
+</section>
+
+<footer>
+  OUR MASJID<br>
+  May Allah bless our community.
+</footer>
+
+</div>
+
+<script>
+document.getElementById("enter").addEventListener("click",
+function() {
+  const intro = document.getElementById("intro");
+  const website = document.getElementById("website");
+
+  intro.classList.add("lit");
+
+  setTimeout(function() {
+    intro.classList.add("hide");
+    website.classList.add("show");
+  }, 3000);
+});
+</script>
+
+</body>
+</html>
