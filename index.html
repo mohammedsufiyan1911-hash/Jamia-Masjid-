@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,37 +37,43 @@ body {
   background: #020604;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 35px 15px 30px;
+  padding: 25px 15px;
   padding-bottom: max(30px, env(safe-area-inset-bottom));
   overflow-y: auto;
   transition: opacity 2s ease;
 }
-  
-.mosque img {
+
+/* MOSQUE IMAGE - INITIALLY DARK */
+
+.mosque {
   width: 100%;
-  max-height: 55vh;
-  object-fit: contain;
-  display: block;
-  border-radius: 12px;
+  max-width: 850px;
+  margin: auto;
+  filter: brightness(0.08);
+  transition: filter 3s ease;
 }
 
 .mosque img {
   width: 100%;
+  max-height: 55vh;
   height: auto;
+  object-fit: contain;
   display: block;
   border-radius: 12px;
   box-shadow: 0 0 0 transparent;
 }
 
-/* MOSQUE LIGHTING EFFECT */
+/* LIGHTS TURN ON AFTER CLICK */
 
 #intro.lit .mosque {
   filter: brightness(1.15)
     drop-shadow(0 0 30px #e5bd65);
 }
+
+/* HEADING */
 
 #intro h1 {
   color: #e8d5a5;
@@ -75,6 +82,8 @@ body {
   margin: 25px 0 20px;
   text-shadow: 0 0 15px #c6a96b;
 }
+
+/* ENTER BUTTON */
 
 #enter {
   background: transparent;
@@ -99,6 +108,8 @@ body {
   opacity: 0.8;
   cursor: default;
 }
+
+/* INTRO DISAPPEARS */
 
 #intro.hide {
   opacity: 0;
@@ -240,6 +251,7 @@ footer {
 
   #intro {
     padding: 15px;
+    padding-bottom: max(30px, env(safe-area-inset-bottom));
   }
 
   .mosque {
@@ -272,7 +284,10 @@ footer {
 
   <div class="mosque">
 
-  <img src="https://raw.githubusercontent.com/mohammedsufiyan1911-hash/Jamia-Masjid-/main/masjid-night.png" alt="Jamia Masjid at night">
+    <img
+      src="https://raw.githubusercontent.com/mohammedsufiyan1911-hash/Jamia-Masjid-/main/masjid-night.png"
+      alt="Jamia Masjid at night"
+    >
 
   </div>
 
@@ -485,11 +500,11 @@ document.addEventListener("DOMContentLoaded", function () {
     enterButton.textContent =
       "WELCOME TO JAMIA MASJID";
 
-    // Turn on mosque lights
+    // TURN ON MOSQUE LIGHTS
 
     intro.classList.add("lit");
 
-    // Reveal homepage after 3 seconds
+    // REVEAL HOMEPAGE AFTER 3 SECONDS
 
     setTimeout(function () {
 
@@ -499,7 +514,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }, 3000);
 
-    // Remove opening screen
+    // REMOVE OPENING SCREEN
 
     setTimeout(function () {
 
