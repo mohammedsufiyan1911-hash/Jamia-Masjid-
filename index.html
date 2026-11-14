@@ -60,8 +60,6 @@ body {
   transition: filter 3s ease;
 }
 
-/* LIGHT UP EFFECT */
-
 #intro.lit .mosque img {
   filter: brightness(1.15);
 }
@@ -186,17 +184,15 @@ section p {
   line-height: 1.9;
 }
 
-/* PRAYER AND BANK DETAILS */
+/* PRAYER TIMINGS */
 
 .prayers {
   background: #e9e4d6;
   border: 1px solid #d6c69f;
   border-radius: 15px;
   padding: 25px;
-  margin-top: 20px;
+  margin: 20px auto 0;
   max-width: 550px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .prayer-row {
@@ -221,7 +217,7 @@ section p {
   overflow-wrap: anywhere;
 }
 
-/* CURRENT NAMAZ HIGHLIGHT */
+/* ACTIVE PRAYER */
 
 .prayer-row.active-prayer {
   background: #d6c69f;
@@ -343,6 +339,15 @@ footer {
 </head>
 
 <body>
+
+<!-- BACKGROUND NASHEED -->
+
+<audio
+  id="backgroundMusic"
+  src="jamia-masjid-nasheed.mp3"
+  preload="auto"
+  loop>
+</audio>
 
 <!-- OPENING SCREEN -->
 
@@ -478,8 +483,6 @@ footer {
 
     <div class="payment-options">
 
-      <!-- PHONEPE -->
-
       <a
         class="payment-card"
         href="upi://pay?pa=QR919448382786-1047@unionbankofindia&pn=Jamia%20Masjid&cu=INR">
@@ -492,8 +495,6 @@ footer {
 
       </a>
 
-      <!-- GOOGLE PAY -->
-
       <a
         class="payment-card"
         href="upi://pay?pa=QR919448382786-1047@unionbankofindia&pn=Jamia%20Masjid&cu=INR">
@@ -505,8 +506,6 @@ footer {
         <span>Google Pay</span>
 
       </a>
-
-      <!-- PAYTM -->
 
       <a
         class="payment-card"
@@ -615,11 +614,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const enterButton = document.getElementById("enter");
   const intro = document.getElementById("intro");
   const website = document.getElementById("website");
+  const music = document.getElementById("backgroundMusic");
+
+  /* ENTER WEBSITE AND START NASHEED */
 
   enterButton.addEventListener("click", function () {
 
     enterButton.disabled = true;
     enterButton.textContent = "WELCOME TO JAMIA MASJID";
+
+    /* BACKGROUND MUSIC VOLUME: 15% */
+
+    music.volume = 0.15;
+
+    music.play().catch(function (error) {
+      console.log("Audio could not start:", error);
+    });
+
+    /* OPENING ANIMATION */
 
     intro.classList.add("lit");
 
@@ -645,6 +657,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const isFriday = now.getDay() === 5;
 
+    const jumuahActive =
+      isFriday &&
+      currentMinutes >= 750 &&
+      currentMinutes < 840;
+
     const prayers = [
       { id: "fajr", start: 295, end: 377 },
       { id: "dhuhr", start: 723, end: 964 },
@@ -660,7 +677,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (!element) return;
 
-      const active =
+      let active =
         (!prayer.fridayOnly || isFriday) &&
         (
           prayer.start < prayer.end
@@ -669,6 +686,12 @@ document.addEventListener("DOMContentLoaded", function () {
             : currentMinutes >= prayer.start ||
               currentMinutes < prayer.end
         );
+
+      /* JUMU'AH TAKES PRIORITY OVER DHUHR ON FRIDAY */
+
+      if (prayer.id === "dhuhr" && jumuahActive) {
+        active = false;
+      }
 
       element.classList.toggle("active-prayer", active);
 
