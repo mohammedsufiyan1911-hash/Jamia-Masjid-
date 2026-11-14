@@ -1,14 +1,29 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Jamia Masjid</title>
 
 <style>
 
-/* GENERAL */
+/* =================================
+   GENERAL THEME
+================================= */
+
+:root {
+  --green: #123d2e;
+  --dark-green: #082c20;
+  --gold: #bd984b;
+  --dark-gold: #8c6729;
+  --light-gold: #e4d0a0;
+  --cream: #fff8e9;
+  --card: #f5ead5;
+  --text: #173d30;
+}
 
 * {
   margin: 0;
@@ -22,42 +37,37 @@ html {
 
 body {
   font-family: Georgia, serif;
-  background-color: #f7f3e9;
+  color: var(--text);
+  background-color: var(--cream);
+
+  /* SUBTLE GEOMETRIC TEXTURE */
+
   background-image:
     repeating-linear-gradient(
       45deg,
       transparent,
-      transparent 35px,
-      rgba(169, 133, 63, 0.035) 36px,
-      transparent 37px
+      transparent 38px,
+      rgba(189,152,75,0.045) 39px,
+      transparent 40px
     ),
     repeating-linear-gradient(
       -45deg,
       transparent,
-      transparent 35px,
-      rgba(169, 133, 63, 0.035) 36px,
-      transparent 37px
+      transparent 38px,
+      rgba(189,152,75,0.045) 39px,
+      transparent 40px
     );
-  color: #173d32;
 }
 
-/* GOLD COLOURS */
-
-:root {
-  --green: #173d32;
-  --dark-green: #102e25;
-  --gold: #b99a55;
-  --light-gold: #e4d1a0;
-  --cream: #f7f3e9;
-}
-
-/* OPENING SCREEN */
+/* =================================
+   OPENING SCREEN
+================================= */
 
 #intro {
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: #020604;
+  background: #03150e;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -71,9 +81,9 @@ body {
   width: 85%;
   max-width: 1000px;
   overflow: hidden;
-  border-radius: 12px;
-  border: 1px solid var(--gold);
-  box-shadow: 0 0 25px #b99a5544;
+  border-radius: 14px;
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 30px #bd984b55;
 }
 
 .mosque img {
@@ -90,29 +100,29 @@ body {
 }
 
 #intro h1 {
-  color: #e8d5a5;
-  font-size: clamp(22px, 5vw, 34px);
+  color: #f0dfb5;
+  font-size: clamp(22px, 5vw, 36px);
   letter-spacing: 5px;
-  margin: 25px 0 20px;
-  text-shadow: 0 0 15px #c6a96b;
+  margin: 28px 0 22px;
+  text-shadow: 0 0 18px #bd984b;
 }
 
 #enter {
   background: transparent;
   border: 1px solid var(--gold);
-  color: #e8d5a5;
+  color: #f0dfb5;
   padding: 15px 35px;
   border-radius: 40px;
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: 3px;
   cursor: pointer;
-  box-shadow: 0 0 15px #c6a96b55;
+  box-shadow: 0 0 15px #bd984b44;
   transition: 0.4s;
 }
 
 #enter:hover {
   background: var(--gold);
-  color: #07130e;
+  color: var(--dark-green);
 }
 
 #enter:disabled {
@@ -124,7 +134,9 @@ body {
   pointer-events: none;
 }
 
-/* MAIN WEBSITE */
+/* =================================
+   MAIN WEBSITE
+================================= */
 
 #website {
   display: none;
@@ -132,7 +144,7 @@ body {
 
 #website.show {
   display: block;
-  animation: appear 2s ease;
+  animation: appear 1.8s ease;
 }
 
 @keyframes appear {
@@ -140,45 +152,57 @@ body {
     opacity: 0;
     transform: translateY(15px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* HEADER */
+/* =================================
+   HEADER
+================================= */
 
 header {
   position: relative;
-  background: var(--green);
-  color: #f3e6c4;
   text-align: center;
-  padding: 55px 20px;
-  border-bottom: 3px double var(--gold);
+  color: #f7e9c8;
+  background: var(--green);
+  padding: 65px 20px 55px;
+  border-bottom: 4px double var(--gold);
 }
 
-header::before,
+header::before {
+  content: "✦";
+  display: block;
+  color: var(--gold);
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
 header::after {
   content: "✦";
   display: block;
   color: var(--gold);
-  font-size: 19px;
-  margin: 8px auto;
+  font-size: 18px;
+  margin-top: 17px;
 }
 
 header h1 {
-  font-size: clamp(28px, 6vw, 42px);
-  letter-spacing: 4px;
-  margin-bottom: 12px;
-  text-shadow: 0 2px 8px #0005;
+  font-size: clamp(29px, 6vw, 45px);
+  letter-spacing: 5px;
+  margin-bottom: 13px;
 }
 
 header p {
-  color: #e3d4ae;
+  color: #e6d4aa;
+  font-size: 15px;
   letter-spacing: 1px;
 }
 
-/* NAVIGATION */
+/* =================================
+   NAVIGATION
+================================= */
 
 nav {
   background: var(--dark-green);
@@ -187,104 +211,107 @@ nav {
   position: sticky;
   top: 0;
   z-index: 5;
-  border-bottom: 1px solid var(--gold);
-  box-shadow: 0 3px 12px #0002;
+  border-bottom: 2px solid var(--gold);
+  box-shadow: 0 4px 12px #0002;
 }
 
 nav a {
-  color: #fff0ce;
+  color: #f5e8c8;
   text-decoration: none;
   display: inline-block;
-  margin: 5px 9px;
+  margin: 5px 10px;
   font-size: 14px;
   transition: 0.3s;
 }
 
 nav a:hover {
-  color: #e5bd65;
-  text-shadow: 0 0 8px #e5bd6580;
+  color: #e7c778;
 }
 
-/* SECTIONS */
+/* =================================
+   SECTIONS
+================================= */
 
 section {
-  position: relative;
-  padding: 55px 22px;
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
+  padding: 60px 25px;
   text-align: center;
+  scroll-margin-top: 75px;
 }
 
-/* GOLDEN SECTION DIVIDERS */
-
-section::after {
-  content: "✦ ━━━━━━━━━━━━━━━━━ ✦";
-  display: block;
-  color: var(--gold);
-  font-size: 13px;
-  letter-spacing: 3px;
-  margin: 35px auto 0;
-  opacity: 0.85;
-}
+/* SECTION HEADINGS */
 
 section h2 {
-  display: inline-block;
+  display: block;
   position: relative;
-  font-size: 27px;
   color: var(--green);
-  margin-bottom: 28px;
-  padding-bottom: 13px;
+  font-size: clamp(27px, 5vw, 38px);
+  margin-bottom: 30px;
+  padding-bottom: 17px;
 }
 
+/* GOLDEN LINES AND ORNAMENT */
+
 section h2::after {
-  content: "";
+  content: "✦";
+  display: block;
   position: absolute;
-  width: 75%;
-  height: 2px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    var(--gold),
-    transparent
-  );
-  bottom: 0;
-  left: 12.5%;
+  width: 100%;
+  max-width: 550px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -5px;
+  color: var(--dark-gold);
+  font-size: 17px;
+  line-height: 1;
+  background:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      var(--gold) 10%,
+      var(--gold) 43%,
+      transparent 43%,
+      transparent 57%,
+      var(--gold) 57%,
+      var(--gold) 90%,
+      transparent 100%
+    );
+  background-size: 100% 1px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 section p {
-  color: #555;
+  color: #594b39;
   line-height: 1.9;
+  font-size: 16px;
 }
 
-/* PRAYER TIMINGS */
+/* =================================
+   DECORATIVE CARD STYLE
+================================= */
 
 .prayers {
-  background-color: #eee8d9;
-  background-image:
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 25px,
-      #b99a5509 26px,
-      transparent 27px
-    );
-  border: 1px solid var(--gold);
-  border-radius: 15px;
-  padding: 25px;
-  margin: 20px auto 0;
-  max-width: 550px;
-  box-shadow: 0 5px 18px #80652e12;
+  max-width: 650px;
+  margin: 25px auto 0;
+  padding: 24px 30px;
+  background: var(--card);
+  border: 1.5px solid var(--gold);
+  border-radius: 28px;
+  box-shadow: 0 5px 18px #8c672918;
+  position: relative;
 }
 
 .prayer-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 13px 8px;
-  border-bottom: 1px solid #cbb98d;
+  gap: 12px;
+  padding: 15px 8px;
+  border-bottom: 1px solid #d9c69d;
   color: var(--green);
   font-size: 17px;
-  gap: 12px;
   transition: background 0.3s ease;
 }
 
@@ -292,13 +319,18 @@ section p {
   border-bottom: none;
 }
 
+.prayer-row span:first-child {
+  text-align: left;
+}
+
 .prayer-row span:last-child {
-  color: #80652e;
+  color: var(--dark-gold);
   font-weight: bold;
+  text-align: right;
   overflow-wrap: anywhere;
 }
 
-/* BANK DETAILS MOBILE FIX */
+/* BANK DETAILS */
 
 .bank-details .prayer-row {
   gap: 8px;
@@ -337,7 +369,7 @@ section p {
 }
 
 .location-row a {
-  color: #80652e;
+  color: var(--dark-gold);
   font-weight: bold;
   text-decoration: underline;
 }
@@ -345,9 +377,9 @@ section p {
 /* ACTIVE PRAYER */
 
 .prayer-row.active-prayer {
-  background: #d6c69f;
-  border-radius: 8px;
-  box-shadow: 0 0 12px #b99a5544;
+  background: #e4d0a0;
+  border-radius: 10px;
+  box-shadow: 0 0 12px #bd984b35;
 }
 
 .prayer-row.active-prayer span {
@@ -356,38 +388,40 @@ section p {
 
 .prayer-row.active-prayer span:first-child::after {
   content: "  ● NOW";
-  color: #80652e;
+  color: var(--dark-gold);
   font-size: 11px;
   font-weight: bold;
 }
 
-/* FACILITIES */
+/* =================================
+   FACILITIES
+================================= */
 
 .facility-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  max-width: 750px;
-  margin: 30px auto 0;
+  gap: 20px;
+  max-width: 900px;
+  margin: 35px auto 0;
 }
 
 .facility-card {
-  background: #eee8d9;
-  border: 1px solid var(--gold);
-  border-radius: 14px;
+  background: var(--card);
+  border: 2px solid var(--gold);
+  border-radius: 25px;
   overflow: hidden;
-  box-shadow: 0 4px 15px #80652e20;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 16px #8c672922;
+  transition: 0.35s;
 }
 
 .facility-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px #80652e30;
+  transform: translateY(-6px);
+  box-shadow: 0 9px 22px #8c672940;
 }
 
 .facility-card img {
   width: 100%;
-  height: 155px;
+  height: 190px;
   object-fit: cover;
   display: block;
   border-bottom: 2px solid var(--gold);
@@ -395,18 +429,21 @@ section p {
 
 .facility-card h3 {
   background: var(--green);
-  color: #f3e6c4;
-  padding: 14px 5px;
+  color: #fff4d9;
+  padding: 16px 5px;
   font-size: 17px;
   border-top: 1px solid var(--light-gold);
 }
 
-/* DONATION SECTION */
+/* =================================
+   DONATIONS
+================================= */
 
 #donate h3 {
   color: var(--green);
-  font-size: 21px;
+  font-size: 22px;
   margin-top: 30px;
+  margin-bottom: 12px;
 }
 
 .payment-options {
@@ -414,20 +451,20 @@ section p {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 15px;
-  margin: 25px auto;
+  gap: 18px;
+  margin: 28px auto;
 }
 
 .payment-card {
-  background: #fffdf7;
+  background: #fffaf0;
   padding: 18px 12px;
-  border: 1px solid #d5c18d;
-  border-radius: 12px;
-  width: 110px;
-  min-height: 115px;
+  border: 1.5px solid var(--gold);
+  border-radius: 17px;
+  width: 115px;
+  min-height: 120px;
   text-decoration: none;
-  color: #333;
-  box-shadow: 0 3px 10px #80652e20;
+  color: var(--green);
+  box-shadow: 0 3px 12px #8c67291a;
   transition: 0.3s;
   display: flex;
   flex-direction: column;
@@ -437,8 +474,7 @@ section p {
 
 .payment-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px #80652e35;
-  border-color: var(--gold);
+  box-shadow: 0 6px 16px #8c672933;
 }
 
 .payment-card img {
@@ -456,38 +492,49 @@ section p {
 
 #donate hr {
   border: 0;
-  height: 1px;
+  height: 1.5px;
   background: linear-gradient(
     to right,
     transparent,
     var(--gold),
     transparent
   );
-  margin: 35px auto;
-  max-width: 550px;
+  margin: 40px auto;
+  max-width: 600px;
 }
 
-/* FOOTER */
+/* UPI ID */
+
+.upi-details {
+  margin-top: 15px;
+  color: var(--dark-gold);
+  font-weight: bold;
+  overflow-wrap: anywhere;
+}
+
+/* =================================
+   FOOTER
+================================= */
 
 footer {
-  position: relative;
   background: var(--dark-green);
-  color: #eee0bd;
+  color: #f1e2bd;
   text-align: center;
   padding: 35px 15px;
   line-height: 2;
-  border-top: 3px double var(--gold);
+  border-top: 4px double var(--gold);
   letter-spacing: 1px;
 }
 
-footer::before {
-  content: "✦ ━━━━━━━━━ ✦";
-  display: block;
+footer .footer-symbol {
   color: var(--gold);
+  font-size: 20px;
   margin-bottom: 10px;
 }
 
-/* MOBILE */
+/* =================================
+   MOBILE RESPONSIVE DESIGN
+================================= */
 
 @media (max-width: 600px) {
 
@@ -503,32 +550,80 @@ footer::before {
     letter-spacing: 3px;
   }
 
+  header {
+    padding: 48px 15px;
+  }
+
+  header h1 {
+    letter-spacing: 3px;
+  }
+
+  nav {
+    padding: 12px 5px;
+  }
+
   nav a {
     font-size: 12px;
-    margin: 5px;
+    margin: 5px 6px;
   }
 
   section {
-    padding: 40px 18px;
+    padding: 45px 17px;
   }
 
   section h2 {
-    font-size: 24px;
+    font-size: 27px;
+  }
+
+  section p {
+    font-size: 15px;
+  }
+
+  .prayers {
+    padding: 18px 16px;
+    border-radius: 22px;
   }
 
   .prayer-row {
     font-size: 15px;
+    padding: 14px 5px;
   }
 
   .facility-grid {
     grid-template-columns: 1fr;
     max-width: 350px;
+    gap: 22px;
   }
 
   .facility-card img {
-    height: 190px;
+    height: 200px;
   }
 
+  .facility-card h3 {
+    font-size: 18px;
+  }
+
+  .payment-options {
+    gap: 10px;
+  }
+
+  .payment-card {
+    width: 100px;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 </style>
@@ -539,10 +634,10 @@ footer::before {
 <!-- BACKGROUND NASHEED -->
 
 <audio
-id="backgroundMusic"
-src="jamia-masjid-nasheed.mp3"
-preload="auto"
-loop>
+  id="backgroundMusic"
+  src="jamia-masjid-nasheed.mp3"
+  preload="auto"
+  loop>
 </audio>
 
 <!-- OPENING SCREEN -->
@@ -741,8 +836,8 @@ loop>
 
     </div>
 
-    <p>
-      <strong>UPI ID:</strong><br>
+    <p class="upi-details">
+      UPI ID:<br>
       QR919448382786-1047@unionbankofindia
     </p>
 
@@ -799,7 +894,6 @@ loop>
       </div>
 
       <div class="prayer-row location-row">
-
         <span>🗺️ Location</span>
 
         <span>
@@ -810,7 +904,6 @@ loop>
             View Map ↗
           </a>
         </span>
-
       </div>
 
     </div>
@@ -820,7 +913,8 @@ loop>
   <!-- FOOTER -->
 
   <footer>
-    JAMIA MASJID
+    <div class="footer-symbol">✦ ━━━━━━━━━ ✦</div>
+    <strong>JAMIA MASJID</strong>
     <br>
     May Allah bless our community.
   </footer>
