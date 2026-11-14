@@ -1,11 +1,9 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Jamia Masjid</title>
 
 <style>
@@ -24,8 +22,33 @@ html {
 
 body {
   font-family: Georgia, serif;
-  background: #f7f3e9;
+  background-color: #f7f3e9;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 35px,
+      rgba(169, 133, 63, 0.035) 36px,
+      transparent 37px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 35px,
+      rgba(169, 133, 63, 0.035) 36px,
+      transparent 37px
+    );
   color: #173d32;
+}
+
+/* GOLD COLOURS */
+
+:root {
+  --green: #173d32;
+  --dark-green: #102e25;
+  --gold: #b99a55;
+  --light-gold: #e4d1a0;
+  --cream: #f7f3e9;
 }
 
 /* OPENING SCREEN */
@@ -49,6 +72,8 @@ body {
   max-width: 1000px;
   overflow: hidden;
   border-radius: 12px;
+  border: 1px solid var(--gold);
+  box-shadow: 0 0 25px #b99a5544;
 }
 
 .mosque img {
@@ -74,7 +99,7 @@ body {
 
 #enter {
   background: transparent;
-  border: 1px solid #d6b56b;
+  border: 1px solid var(--gold);
   color: #e8d5a5;
   padding: 15px 35px;
   border-radius: 40px;
@@ -86,7 +111,7 @@ body {
 }
 
 #enter:hover {
-  background: #d6b56b;
+  background: var(--gold);
   color: #07130e;
 }
 
@@ -115,7 +140,6 @@ body {
     opacity: 0;
     transform: translateY(15px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -125,31 +149,46 @@ body {
 /* HEADER */
 
 header {
-  background: #173d32;
+  position: relative;
+  background: var(--green);
   color: #f3e6c4;
   text-align: center;
   padding: 55px 20px;
+  border-bottom: 3px double var(--gold);
+}
+
+header::before,
+header::after {
+  content: "✦";
+  display: block;
+  color: var(--gold);
+  font-size: 19px;
+  margin: 8px auto;
 }
 
 header h1 {
   font-size: clamp(28px, 6vw, 42px);
   letter-spacing: 4px;
   margin-bottom: 12px;
+  text-shadow: 0 2px 8px #0005;
 }
 
 header p {
   color: #e3d4ae;
+  letter-spacing: 1px;
 }
 
 /* NAVIGATION */
 
 nav {
-  background: #102e25;
+  background: var(--dark-green);
   padding: 17px 10px;
   text-align: center;
   position: sticky;
   top: 0;
   z-index: 5;
+  border-bottom: 1px solid var(--gold);
+  box-shadow: 0 3px 12px #0002;
 }
 
 nav a {
@@ -158,25 +197,58 @@ nav a {
   display: inline-block;
   margin: 5px 9px;
   font-size: 14px;
+  transition: 0.3s;
 }
 
 nav a:hover {
   color: #e5bd65;
+  text-shadow: 0 0 8px #e5bd6580;
 }
 
 /* SECTIONS */
 
 section {
+  position: relative;
   padding: 55px 22px;
   max-width: 900px;
   margin: auto;
   text-align: center;
 }
 
+/* GOLDEN SECTION DIVIDERS */
+
+section::after {
+  content: "✦ ━━━━━━━━━━━━━━━━━ ✦";
+  display: block;
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 3px;
+  margin: 35px auto 0;
+  opacity: 0.85;
+}
+
 section h2 {
+  display: inline-block;
+  position: relative;
   font-size: 27px;
-  color: #173d32;
-  margin-bottom: 20px;
+  color: var(--green);
+  margin-bottom: 28px;
+  padding-bottom: 13px;
+}
+
+section h2::after {
+  content: "";
+  position: absolute;
+  width: 75%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--gold),
+    transparent
+  );
+  bottom: 0;
+  left: 12.5%;
 }
 
 section p {
@@ -187,12 +259,21 @@ section p {
 /* PRAYER TIMINGS */
 
 .prayers {
-  background: #e9e4d6;
-  border: 1px solid #d6c69f;
+  background-color: #eee8d9;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 25px,
+      #b99a5509 26px,
+      transparent 27px
+    );
+  border: 1px solid var(--gold);
   border-radius: 15px;
   padding: 25px;
   margin: 20px auto 0;
   max-width: 550px;
+  box-shadow: 0 5px 18px #80652e12;
 }
 
 .prayer-row {
@@ -200,8 +281,8 @@ section p {
   justify-content: space-between;
   align-items: center;
   padding: 13px 8px;
-  border-bottom: 1px solid #d1c8b4;
-  color: #173d32;
+  border-bottom: 1px solid #cbb98d;
+  color: var(--green);
   font-size: 17px;
   gap: 12px;
   transition: background 0.3s ease;
@@ -266,11 +347,11 @@ section p {
 .prayer-row.active-prayer {
   background: #d6c69f;
   border-radius: 8px;
-  box-shadow: 0 0 10px #c6a96b55;
+  box-shadow: 0 0 12px #b99a5544;
 }
 
 .prayer-row.active-prayer span {
-  color: #173d32;
+  color: var(--green);
 }
 
 .prayer-row.active-prayer span:first-child::after {
@@ -291,16 +372,17 @@ section p {
 }
 
 .facility-card {
-  background: #e9e4d6;
-  border: 1px solid #d6c69f;
+  background: #eee8d9;
+  border: 1px solid var(--gold);
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 3px 10px #0001;
-  transition: transform 0.3s ease;
+  box-shadow: 0 4px 15px #80652e20;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .facility-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 20px #80652e30;
 }
 
 .facility-card img {
@@ -308,19 +390,21 @@ section p {
   height: 155px;
   object-fit: cover;
   display: block;
+  border-bottom: 2px solid var(--gold);
 }
 
 .facility-card h3 {
-  background: #173d32;
+  background: var(--green);
   color: #f3e6c4;
   padding: 14px 5px;
   font-size: 17px;
+  border-top: 1px solid var(--light-gold);
 }
 
 /* DONATION SECTION */
 
 #donate h3 {
-  color: #173d32;
+  color: var(--green);
   font-size: 21px;
   margin-top: 30px;
 }
@@ -335,14 +419,15 @@ section p {
 }
 
 .payment-card {
-  background: white;
+  background: #fffdf7;
   padding: 18px 12px;
+  border: 1px solid #d5c18d;
   border-radius: 12px;
   width: 110px;
   min-height: 115px;
   text-decoration: none;
   color: #333;
-  box-shadow: 0 2px 8px #0002;
+  box-shadow: 0 3px 10px #80652e20;
   transition: 0.3s;
   display: flex;
   flex-direction: column;
@@ -352,7 +437,8 @@ section p {
 
 .payment-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 14px #0003;
+  box-shadow: 0 5px 15px #80652e35;
+  border-color: var(--gold);
 }
 
 .payment-card img {
@@ -370,7 +456,13 @@ section p {
 
 #donate hr {
   border: 0;
-  border-top: 1px solid #d6c69f;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--gold),
+    transparent
+  );
   margin: 35px auto;
   max-width: 550px;
 }
@@ -378,11 +470,21 @@ section p {
 /* FOOTER */
 
 footer {
-  background: #102e25;
+  position: relative;
+  background: var(--dark-green);
   color: #eee0bd;
   text-align: center;
-  padding: 30px 15px;
+  padding: 35px 15px;
   line-height: 2;
+  border-top: 3px double var(--gold);
+  letter-spacing: 1px;
+}
+
+footer::before {
+  content: "✦ ━━━━━━━━━ ✦";
+  display: block;
+  color: var(--gold);
+  margin-bottom: 10px;
 }
 
 /* MOBILE */
@@ -408,6 +510,10 @@ footer {
 
   section {
     padding: 40px 18px;
+  }
+
+  section h2 {
+    font-size: 24px;
   }
 
   .prayer-row {
@@ -744,9 +850,9 @@ document.addEventListener("DOMContentLoaded", function () {
     enterButton.disabled = true;
     enterButton.textContent = "WELCOME TO JAMIA MASJID";
 
-    /* BACKGROUND MUSIC VOLUME: 20% */
+    /* BACKGROUND MUSIC VOLUME: 2% */
 
-    music.volume = 0.20;
+    music.volume = 0.02;
 
     music.play().catch(function (error) {
       console.log("Audio could not start:", error);
