@@ -208,6 +208,7 @@ section p {
   color: #173d32;
   font-size: 17px;
   gap: 12px;
+  transition: background 0.3s ease;
 }
 
 .prayer-row:last-child {
@@ -218,6 +219,25 @@ section p {
   color: #80652e;
   font-weight: bold;
   overflow-wrap: anywhere;
+}
+
+/* CURRENT NAMAZ HIGHLIGHT */
+
+.prayer-row.active-prayer {
+  background: #d6c69f;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #c6a96b55;
+}
+
+.prayer-row.active-prayer span {
+  color: #173d32;
+}
+
+.prayer-row.active-prayer span:first-child::after {
+  content: "  ● NOW";
+  color: #80652e;
+  font-size: 11px;
+  font-weight: bold;
 }
 
 /* DONATION SECTION */
@@ -391,32 +411,32 @@ footer {
 
     <div class="prayers">
 
-      <div class="prayer-row">
+      <div class="prayer-row" id="fajr">
         <span>Fajr</span>
         <span>05:45 AM</span>
       </div>
 
-      <div class="prayer-row">
+      <div class="prayer-row" id="dhuhr">
         <span>Dhuhr</span>
         <span>01:30 PM</span>
       </div>
 
-      <div class="prayer-row">
+      <div class="prayer-row" id="asr">
         <span>Asr</span>
         <span>04:45 PM</span>
       </div>
 
-      <div class="prayer-row">
+      <div class="prayer-row" id="maghrib">
         <span>Maghrib</span>
         <span>05:57 PM</span>
       </div>
 
-      <div class="prayer-row">
+      <div class="prayer-row" id="isha">
         <span>Isha</span>
         <span>08:30 PM</span>
       </div>
 
-      <div class="prayer-row">
+      <div class="prayer-row" id="jumuah">
         <span>Jumu'ah</span>
         <span>02:00 PM</span>
       </div>
@@ -561,7 +581,6 @@ footer {
 
       <div class="prayer-row">
         <span>🗺️ Location</span>
-
         <span>
           <a
             href="https://maps.app.goo.gl/KtFTmPmjbosAxt1j6"
@@ -587,7 +606,7 @@ footer {
 
 </div>
 
-<!-- ENTER BUTTON ANIMATION -->
+<!-- JAVASCRIPT -->
 
 <script>
 
@@ -602,24 +621,64 @@ document.addEventListener("DOMContentLoaded", function () {
     enterButton.disabled = true;
     enterButton.textContent = "WELCOME TO JAMIA MASJID";
 
-    // Light up the mosque
-
     intro.classList.add("lit");
-
-    // Show homepage
 
     setTimeout(function () {
       intro.classList.add("hide");
       website.classList.add("show");
     }, 3000);
 
-    // Remove opening screen
-
     setTimeout(function () {
       intro.style.display = "none";
     }, 5200);
 
   });
+
+  /* AUTOMATIC NAMAZ HIGHLIGHT */
+
+  function updatePrayerHighlight() {
+
+    const now = new Date();
+
+    const currentMinutes =
+      now.getHours() * 60 + now.getMinutes();
+
+    const isFriday = now.getDay() === 5;
+
+    const prayers = [
+      { id: "fajr", start: 295, end: 377 },
+      { id: "dhuhr", start: 723, end: 964 },
+      { id: "jumuah", start: 750, end: 840, fridayOnly: true },
+      { id: "asr", start: 964, end: 1074 },
+      { id: "maghrib", start: 1077, end: 1152 },
+      { id: "isha", start: 1152, end: 295 }
+    ];
+
+    prayers.forEach(function (prayer) {
+
+      const element = document.getElementById(prayer.id);
+
+      if (!element) return;
+
+      const active =
+        (!prayer.fridayOnly || isFriday) &&
+        (
+          prayer.start < prayer.end
+            ? currentMinutes >= prayer.start &&
+              currentMinutes < prayer.end
+            : currentMinutes >= prayer.start ||
+              currentMinutes < prayer.end
+        );
+
+      element.classList.toggle("active-prayer", active);
+
+    });
+
+  }
+
+  updatePrayerHighlight();
+
+  setInterval(updatePrayerHighlight, 30000);
 
 });
 
