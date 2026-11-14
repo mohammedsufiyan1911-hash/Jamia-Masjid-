@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -184,7 +185,7 @@ section p {
   line-height: 1.9;
 }
 
-/* NAMAZ TIMINGS */
+/* NAMAZ TIMINGS AND BANK DETAILS */
 
 .prayers {
   background: #e9e4d6;
@@ -205,6 +206,7 @@ section p {
   border-bottom: 1px solid #d1c8b4;
   color: #173d32;
   font-size: 17px;
+  gap: 12px;
 }
 
 .prayer-row:last-child {
@@ -214,54 +216,39 @@ section p {
 .prayer-row span:last-child {
   color: #80652e;
   font-weight: bold;
+  overflow-wrap: anywhere;
 }
 
 /* DONATION SECTION */
 
-<!-- DONATE -->
-<section id="donate">
-  <h2>Support Jamia Masjid</h2>
-  <p>Your contribution helps support the masjid and its activities.</p>
+#donate h3 {
+  color: #173d32;
+  font-size: 21px;
+  margin-top: 30px;
+}
 
-  <h3>Donate via UPI</h3>
+.donate-button {
+  display: inline-block;
+  padding: 14px 28px;
+  margin: 20px;
+  background: #80652e;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+}
 
-  <a
-    href="upi://pay?pa=QR919448382786-1047@unionbankofindia&pn=Jamia%20Masjid&cu=INR"
-    style="display:inline-block; padding:14px 28px;
-    background:#80652e; color:white; text-decoration:none;
-    border-radius:8px; font-weight:bold;"
-  >
-    Donate via UPI
-  </a>
+.donate-button:hover {
+  background: #173d32;
+}
 
-  <p><strong>UPI ID:</strong> QR919448382786-1047@unionbankofindia</p>
-
-  <hr>
-
-  <h3>Bank Account Details</h3>
-
-  <div class="prayers">
-    <div class="prayer-row">
-      <span>Account Number</span>
-      <span>520101029941047</span>
-    </div>
-
-    <div class="prayer-row">
-      <span>IFSC Code</span>
-      <span>UBIN0912280</span>
-    </div>
-
-    <div class="prayer-row">
-      <span>Branch</span>
-      <span>Madiwala Branch</span>
-    </div>
-
-    <div class="prayer-row">
-      <span>Bank</span>
-      <span>Union Bank of India</span>
-    </div>
-  </div>
-</section>
+#donate hr {
+  border: 0;
+  border-top: 1px solid #d6c69f;
+  margin: 35px auto;
+  max-width: 550px;
+}
 
 /* FOOTER */
 
@@ -314,8 +301,9 @@ footer {
 <div id="intro">
 
   <div class="mosque">
-    <img src="masjid-night.png"
-         alt="Jamia Masjid at night">
+    <img
+      src="https://raw.githubusercontent.com/mohammedsufiyan1911-hash/Jamia-Masjid-/main/masjid-night.png"
+      alt="Jamia Masjid at night">
   </div>
 
   <h1>JAMIA MASJID</h1>
@@ -329,6 +317,8 @@ footer {
 <!-- MAIN WEBSITE -->
 
 <div id="website">
+
+  <!-- HEADER -->
 
   <header>
     <h1>JAMIA MASJID</h1>
@@ -425,68 +415,94 @@ footer {
 
   <section id="donate">
 
-    <div class="donate">
+    <h2>Support Jamia Masjid</h2>
 
-      <h2>Support Our Masjid</h2>
+    <p>
+      Your contribution helps support the masjid
+      and its activities.
+    </p>
 
-      <p>
-        Your generous contributions help
-        support our Masjid and its activities.
-      </p>
+    <h3>Donate via UPI</h3>
 
-      <div class="qr">
-        OFFICIAL UPI QR CODE
-        <br><br>
-        To be added
+    <a
+      class="donate-button"
+      href="upi://pay?pa=QR919448382786-1047@unionbankofindia&pn=Jamia%20Masjid&cu=INR">
+      Donate via UPI
+    </a>
+
+    <p>
+      <strong>UPI ID:</strong>
+      QR919448382786-1047@unionbankofindia
+    </p>
+
+    <hr>
+
+    <h3>Bank Account Details</h3>
+
+    <div class="prayers">
+
+      <div class="prayer-row">
+        <span>Account Number</span>
+        <span>520101029941047</span>
       </div>
 
-      <p>
-        May Allah reward you for your generosity.
-      </p>
+      <div class="prayer-row">
+        <span>IFSC Code</span>
+        <span>UBIN0912280</span>
+      </div>
+
+      <div class="prayer-row">
+        <span>Branch</span>
+        <span>Madiwala</span>
+      </div>
+
+      <div class="prayer-row">
+        <span>Bank</span>
+        <span>Union Bank of India</span>
+      </div>
 
     </div>
+
+    <p style="margin-top:20px;">
+      May Allah reward you for your generosity.
+    </p>
 
   </section>
 
   <!-- CONTACT -->
 
-  
-<!-- CONTACT SECTION -->
+  <section id="contact">
 
-<section id="contact">
+    <h2>Contact Us</h2>
 
-  <h2>Contact Us</h2>
+    <div class="prayers">
 
-  <div class="prayers">
+      <div class="prayer-row">
+        <span>📍 Address</span>
+        <span>Madiwala</span>
+      </div>
 
-    <div class="prayer-row">
-      <span>📍 Address</span>
-      <span>Madiwala</span>
+      <div class="prayer-row">
+        <span>📞 Contact</span>
+        <span>9448382786</span>
+      </div>
+
+      <div class="prayer-row">
+        <span>🗺️ Location</span>
+        <span>
+          <a
+            href="https://maps.app.goo.gl/KtFTmPmjbosAxt1j6"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="color:#80652e; font-weight:bold;">
+            View on Google Maps
+          </a>
+        </span>
+      </div>
+
     </div>
 
-    <div class="prayer-row">
-      <span>📞 Contact</span>
-      <span>9448382786</span>
-    </div>
-
-    <div class="prayer-row">
-      <span>🗺️ Location</span>
-      <span>
-        <a
-          href="https://maps.app.goo.gl/KtFTmPmjbosAxt1j6"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="color:#80652e; font-weight:bold;"
-        >
-          View on Google Maps
-        </a>
-      </span>
-    </div>
-
-  </div>
-
-</section>
-
+  </section>
 
   <!-- FOOTER -->
 
