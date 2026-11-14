@@ -10,6 +10,8 @@
 
 <style>
 
+/* GENERAL */
+
 * {
   margin: 0;
   padding: 0;
@@ -47,7 +49,6 @@ body {
   max-width: 1000px;
   overflow: hidden;
   border-radius: 12px;
-  transition: filter 3s ease;
 }
 
 .mosque img {
@@ -185,7 +186,7 @@ section p {
   line-height: 1.9;
 }
 
-/* NAMAZ TIMINGS AND BANK DETAILS */
+/* PRAYER AND BANK DETAILS */
 
 .prayers {
   background: #e9e4d6;
@@ -227,20 +228,47 @@ section p {
   margin-top: 30px;
 }
 
-.donate-button {
-  display: inline-block;
-  padding: 14px 28px;
-  margin: 20px;
-  background: #80652e;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: 0.3s;
+.payment-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 25px auto;
 }
 
-.donate-button:hover {
-  background: #173d32;
+.payment-card {
+  background: white;
+  padding: 18px 12px;
+  border-radius: 12px;
+  width: 110px;
+  min-height: 115px;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 2px 8px #0002;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 14px #0003;
+}
+
+.payment-card img {
+  width: 43px;
+  height: 43px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.payment-card span {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 #donate hr {
@@ -422,16 +450,60 @@ footer {
       and its activities.
     </p>
 
-    <h3>Donate via UPI</h3>
+    <h3>Pay Using UPI</h3>
 
-    <a
-      class="donate-button"
-      href="upi://pay?pa=QR919448382786-1047@unionbankofindia&pn=Jamia%20Masjid&cu=INR">
-      Donate via UPI
-    </a>
+    <p style="margin-top:10px;">
+      Choose your preferred payment app:
+    </p>
+
+    <div class="payment-options">
+
+      <!-- PHONEPE -->
+
+      <a
+        class="payment-card"
+        href="upi://pay?pa=QR919448382786-1047@unionbankofindia&pn=Jamia%20Masjid&cu=INR">
+
+        <img
+          src="https://cdn.simpleicons.org/phonepe/5F259F"
+          alt="PhonePe logo">
+
+        <span>PhonePe</span>
+
+      </a>
+
+      <!-- GOOGLE PAY -->
+
+      <a
+        class="payment-card"
+        href="upi://pay?pa=QR919448382786-1047@unionbankofindia&pn=Jamia%20Masjid&cu=INR">
+
+        <img
+          src="https://cdn.simpleicons.org/googlepay/4285F4"
+          alt="Google Pay logo">
+
+        <span>Google Pay</span>
+
+      </a>
+
+      <!-- PAYTM -->
+
+      <a
+        class="payment-card"
+        href="upi://pay?pa=QR919448382786-1047@unionbankofindia&pn=Jamia%20Masjid&cu=INR">
+
+        <img
+          src="https://cdn.simpleicons.org/paytm/00BAF2"
+          alt="Paytm logo">
+
+        <span>Paytm</span>
+
+      </a>
+
+    </div>
 
     <p>
-      <strong>UPI ID:</strong>
+      <strong>UPI ID:</strong><br>
       QR919448382786-1047@unionbankofindia
     </p>
 
@@ -489,6 +561,7 @@ footer {
 
       <div class="prayer-row">
         <span>🗺️ Location</span>
+
         <span>
           <a
             href="https://maps.app.goo.gl/KtFTmPmjbosAxt1j6"
