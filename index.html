@@ -151,13 +151,24 @@ body {
   }
 }
 
-/* HEADER */
+/* HEADER WITH BACKGROUND IMAGE */
 
 header {
   position: relative;
   text-align: center;
   color: #f7e9c8;
-  background: var(--green);
+
+  background:
+    linear-gradient(
+      rgba(8,44,32,0.78),
+      rgba(8,44,32,0.82)
+    ),
+    url("https://raw.githubusercontent.com/mohammedsufiyan1911-hash/Jamia-Masjid-/main/masjid-night.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   padding: 65px 20px 55px;
   border-bottom: 4px double var(--gold);
 }
@@ -182,12 +193,14 @@ header h1 {
   font-size: clamp(29px, 6vw, 45px);
   letter-spacing: 5px;
   margin-bottom: 13px;
+  text-shadow: 0 2px 12px #0008;
 }
 
 header p {
   color: #e6d4aa;
   font-size: 15px;
   letter-spacing: 1px;
+  text-shadow: 0 2px 8px #0008;
 }
 
 /* NAVIGATION */
@@ -235,7 +248,7 @@ section h2 {
   padding-bottom: 17px;
 }
 
-/* GOLDEN LINES AND ORNAMENT */
+/* GOLDEN ORNAMENT */
 
 section h2::after {
   content: "✦";
@@ -490,7 +503,7 @@ section p {
   overflow-wrap: anywhere;
 }
 
-/* FOOTER WITH SMALL CIRCULAR PHOTOS */
+/* FOOTER WITH CIRCULAR PHOTOS */
 
 footer {
   position: relative;
@@ -531,7 +544,7 @@ footer {
   right: 12px;
 }
 
-/* MOBILE RESPONSIVE DESIGN */
+/* MOBILE DESIGN */
 
 @media (max-width: 600px) {
 
@@ -549,6 +562,7 @@ footer {
 
   header {
     padding: 48px 15px;
+    background-position: center;
   }
 
   header h1 {
@@ -775,48 +789,33 @@ footer {
 
     <div class="facility-grid">
 
-      <!-- GHUSUL KHANA -->
-
       <div class="facility-card">
-        <img
-          src="ghusul-khana.png"
-          alt="Ghusul Khana washing facility">
+        <img src="ghusul-khana.png"
+             alt="Ghusul Khana washing facility">
         <h3>Ghusul Khana</h3>
       </div>
 
-      <!-- KHABRASTAN -->
-
       <div class="facility-card">
-        <img
-          src="khabrastan.jpg"
-          alt="Khabrastan cemetery">
+        <img src="khabrastan.jpg"
+             alt="Khabrastan cemetery">
         <h3>Khabrastan</h3>
       </div>
 
-      <!-- MAKTAB -->
-
       <div class="facility-card">
-        <img
-          src="maktab.jpg"
-          alt="Maktab Islamic learning facility">
+        <img src="maktab.jpg"
+             alt="Maktab Islamic learning facility">
         <h3>Maktab</h3>
       </div>
 
-      <!-- BOYS' ACCOMMODATION -->
-
       <div class="facility-card">
-        <img
-          src="boys-accommodation.jpg"
-          alt="Boys' accommodation rooms">
+        <img src="boys-accommodation.jpg"
+             alt="Boys' accommodation rooms">
         <h3>Boys' Accommodation</h3>
       </div>
 
-      <!-- LADIES' PRAYER ROOM -->
-
       <div class="facility-card">
-        <img
-          src="ladies-prayer-room.jpg"
-          alt="Ladies' Prayer Room">
+        <img src="ladies-prayer-room.jpg"
+             alt="Ladies' Prayer Room">
         <h3>Ladies' Prayer Room</h3>
       </div>
 
@@ -843,38 +842,29 @@ footer {
 
     <div class="payment-options">
 
-      <a
-        class="payment-card"
-        href="upi://pay?pa=QR919448382786-1047@unionbankofindia&pn=Jamia%20Masjid&cu=INR">
+      <a class="payment-card"
+         href="upi://pay?pa=QR919448382786-1047@unionbankofindia&pn=Jamia%20Masjid&cu=INR">
 
-        <img
-          src="https://cdn.simpleicons.org/phonepe/5F259F"
-          alt="PhonePe logo">
-
+        <img src="https://cdn.simpleicons.org/phonepe/5F259F"
+             alt="PhonePe logo">
         <span>PhonePe</span>
 
       </a>
 
-      <a
-        class="payment-card"
-        href="upi://pay?pa=QR919448382786-1047@unionbankofindia&pn=Jamia%20Masjid&cu=INR">
+      <a class="payment-card"
+         href="upi://pay?pa=QR919448382786-1047@unionbankofindia&pn=Jamia%20Masjid&cu=INR">
 
-        <img
-          src="https://cdn.simpleicons.org/googlepay/4285F4"
-          alt="Google Pay logo">
-
+        <img src="https://cdn.simpleicons.org/googlepay/4285F4"
+             alt="Google Pay logo">
         <span>Google Pay</span>
 
       </a>
 
-      <a
-        class="payment-card"
-        href="upi://pay?pa=QR919448382786-1047@unionbankofindia&pn=Jamia%20Masjid&cu=INR">
+      <a class="payment-card"
+         href="upi://pay?pa=QR919448382786-1047@unionbankofindia&pn=Jamia%20Masjid&cu=INR">
 
-        <img
-          src="https://cdn.simpleicons.org/paytm/00BAF2"
-          alt="Paytm logo">
-
+        <img src="https://cdn.simpleicons.org/paytm/00BAF2"
+             alt="Paytm logo">
         <span>Paytm</span>
 
       </a>
@@ -942,10 +932,9 @@ footer {
         <span>🗺️ Location</span>
 
         <span>
-          <a
-            href="https://maps.app.goo.gl/KtFTmPmjbosAxt1j6"
-            target="_blank"
-            rel="noopener noreferrer">
+          <a href="https://maps.app.goo.gl/KtFTmPmjbosAxt1j6"
+             target="_blank"
+             rel="noopener noreferrer">
             View Map ↗
           </a>
         </span>
@@ -959,11 +948,9 @@ footer {
 
   <footer>
 
-    <!-- LEFT CIRCULAR PHOTO -->
-    <img
-      src="footer-left.jpg"
-      alt="Jamia Masjid"
-      class="footer-photo left">
+    <img src="footer-left.jpg"
+         alt="Jamia Masjid"
+         class="footer-photo left">
 
     <div class="footer-symbol">
       ✦ ━━━━━━━━━ ✦
@@ -975,11 +962,9 @@ footer {
 
     May Allah bless our community.
 
-    <!-- RIGHT CIRCULAR PHOTO -->
-    <img
-      src="footer-right.jpg"
-      alt="Jamia Masjid"
-      class="footer-photo right">
+    <img src="footer-right.jpg"
+         alt="Jamia Masjid"
+         class="footer-photo right">
 
   </footer>
 
@@ -1008,15 +993,11 @@ document.addEventListener("DOMContentLoaded", function () {
     enterButton.disabled = true;
     enterButton.textContent = "WELCOME TO JAMIA MASJID";
 
-    /* BACKGROUND MUSIC VOLUME: 2% */
-
     music.volume = 0.02;
 
     music.play().catch(function (error) {
       console.log("Audio could not start:", error);
     });
-
-    /* OPENING ANIMATION */
 
     intro.classList.add("lit");
 
