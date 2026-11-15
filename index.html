@@ -10,9 +10,9 @@
 
 <style>
 
-/* ==============================
-   PREMIUM JAMIA MASJID THEME
-============================== */
+/* =========================
+   PREMIUM COLOUR THEME
+========================= */
 
 :root {
   --green: #123d2e;
@@ -59,14 +59,15 @@ body {
     );
 }
 
-/* ==============================
+/* =========================
    OPENING SCREEN
-============================== */
+========================= */
 
 #intro {
   position: fixed;
   inset: 0;
-  z-index: 100;
+  z-index: 1000;
+
   background:
     radial-gradient(
       circle at center,
@@ -78,17 +79,26 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   text-align: center;
   padding: 20px;
-  transition: opacity 1.8s ease;
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 1.5s ease,
+    visibility 1.5s ease;
 }
 
 .mosque {
   width: 85%;
   max-width: 950px;
   overflow: hidden;
+
   border-radius: 15px;
   border: 2px solid var(--gold);
+
   box-shadow:
     0 0 0 5px rgba(189,152,75,0.10),
     0 15px 45px rgba(0,0,0,0.5);
@@ -99,12 +109,13 @@ body {
   max-height: 55vh;
   object-fit: contain;
   display: block;
-  filter: brightness(0.15);
-  transition: filter 3s ease;
+
+  filter: brightness(0.2);
+  transition: filter 2s ease;
 }
 
 #intro.lit .mosque img {
-  filter: brightness(1.15);
+  filter: brightness(1.1);
 }
 
 #intro h1 {
@@ -119,12 +130,17 @@ body {
   background: transparent;
   border: 1px solid var(--gold);
   color: #f0dfb5;
+
   padding: 15px 38px;
   border-radius: 40px;
+
+  font-family: Georgia, serif;
   font-size: 13px;
   letter-spacing: 3px;
+
   cursor: pointer;
   box-shadow: 0 0 18px #bd984b33;
+
   transition: 0.4s;
 }
 
@@ -136,24 +152,27 @@ body {
 
 #enter:disabled {
   opacity: 0.8;
+  cursor: default;
 }
 
 #intro.hide {
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
 }
 
-/* ==============================
+/* =========================
    MAIN WEBSITE
-============================== */
+========================= */
 
 #website {
   display: none;
+  width: 100%;
 }
 
 #website.show {
   display: block;
-  animation: appear 1.5s ease;
+  animation: appear 1.2s ease;
 }
 
 @keyframes appear {
@@ -168,9 +187,9 @@ body {
   }
 }
 
-/* ==============================
-   PREMIUM HEADER
-============================== */
+/* =========================
+   HEADER
+========================= */
 
 header {
   position: relative;
@@ -225,9 +244,9 @@ header p {
   text-shadow: 0 2px 8px #0009;
 }
 
-/* ==============================
+/* =========================
    NAVIGATION
-============================== */
+========================= */
 
 nav {
   background: linear-gradient(
@@ -238,6 +257,7 @@ nav {
 
   padding: 15px 10px;
   text-align: center;
+
   position: sticky;
   top: 0;
   z-index: 5;
@@ -249,10 +269,13 @@ nav {
 nav a {
   color: #f5e8c8;
   text-decoration: none;
+
   display: inline-block;
   margin: 5px 13px;
+
   font-size: 13px;
   letter-spacing: 1px;
+
   transition: 0.3s;
   position: relative;
 }
@@ -262,10 +285,13 @@ nav a::after {
   position: absolute;
   left: 50%;
   bottom: -7px;
+
   width: 0;
   height: 1px;
+
   background: var(--gold);
   transition: 0.3s;
+
   transform: translateX(-50%);
 }
 
@@ -277,14 +303,15 @@ nav a:hover::after {
   width: 100%;
 }
 
-/* ==============================
+/* =========================
    SECTIONS
-============================== */
+========================= */
 
 section {
   max-width: 1050px;
   margin: auto;
   padding: 65px 28px;
+
   text-align: center;
   scroll-margin-top: 80px;
 }
@@ -292,10 +319,13 @@ section {
 section h2 {
   position: relative;
   display: block;
+
   color: var(--green);
+
   font-size: clamp(27px, 5vw, 37px);
   font-weight: normal;
   letter-spacing: 0.5px;
+
   margin-bottom: 30px;
   padding-bottom: 22px;
 }
@@ -303,12 +333,16 @@ section h2 {
 section h2::after {
   content: "✦";
   display: block;
+
   position: absolute;
   width: 100%;
   max-width: 450px;
+
   left: 50%;
   transform: translateX(-50%);
+
   bottom: -3px;
+
   color: var(--dark-gold);
   font-size: 15px;
   line-height: 1;
@@ -330,14 +364,15 @@ section p {
   color: var(--muted);
   line-height: 1.9;
   font-size: 15px;
+
   max-width: 780px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* ==============================
+/* =========================
    PRAYER AND BANK CARDS
-============================== */
+========================= */
 
 .prayers {
   max-width: 680px;
@@ -367,10 +402,12 @@ section p {
   gap: 12px;
 
   padding: 15px 10px;
+
   border-bottom: 1px solid rgba(189,152,75,0.28);
 
   color: var(--green);
   font-size: 16px;
+
   transition: background 0.3s ease;
 }
 
@@ -409,7 +446,7 @@ section p {
   font-size: clamp(12px, 3.5vw, 16px);
 }
 
-/* LOCATION ALIGNMENT */
+/* LOCATION */
 
 .location-row {
   gap: 8px;
@@ -460,9 +497,9 @@ section p {
   letter-spacing: 0.5px;
 }
 
-/* ==============================
+/* =========================
    FACILITIES
-============================== */
+========================= */
 
 .facility-grid {
   display: grid;
@@ -496,6 +533,7 @@ section p {
   height: 205px;
   object-fit: cover;
   display: block;
+
   border-bottom: 2px solid var(--gold);
   transition: transform 0.5s ease;
 }
@@ -514,21 +552,24 @@ section p {
 
   color: #fff4d9;
   padding: 16px 8px;
+
   font-size: 16px;
   font-weight: normal;
   letter-spacing: 0.5px;
+
   border-top: 1px solid var(--light-gold);
 }
 
-/* ==============================
+/* =========================
    DONATIONS
-============================== */
+========================= */
 
 #donate h3 {
   color: var(--green);
   font-size: 20px;
   font-weight: normal;
   letter-spacing: 0.5px;
+
   margin-top: 32px;
   margin-bottom: 12px;
 }
@@ -538,6 +579,7 @@ section p {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+
   gap: 17px;
   margin: 30px auto;
 }
@@ -550,6 +592,7 @@ section p {
   );
 
   padding: 18px 12px;
+
   border: 1px solid var(--gold);
   border-radius: 15px;
 
@@ -603,8 +646,6 @@ section p {
   max-width: 600px;
 }
 
-/* UPI ID */
-
 .upi-details {
   margin-top: 18px;
   color: var(--dark-gold);
@@ -613,17 +654,9 @@ section p {
   overflow-wrap: anywhere;
 }
 
-/* ==============================
-   CONTACT
-============================== */
-
-#contact .prayers {
-  max-width: 680px;
-}
-
-/* ==============================
+/* =========================
    FOOTER
-============================== */
+========================= */
 
 footer {
   position: relative;
@@ -642,6 +675,7 @@ footer {
   min-height: 115px;
 
   line-height: 2;
+
   border-top: 4px double var(--gold);
   letter-spacing: 1px;
   font-size: 13px;
@@ -687,9 +721,9 @@ footer strong {
   right: 15px;
 }
 
-/* ==============================
+/* =========================
    MOBILE DESIGN
-============================== */
+========================= */
 
 @media (max-width: 600px) {
 
@@ -822,8 +856,6 @@ footer strong {
 
 }
 
-/* VERY SMALL SCREENS */
-
 @media (max-width: 350px) {
 
   .facility-grid {
@@ -885,7 +917,7 @@ footer strong {
 
   <h1>JAMIA MASJID</h1>
 
-  <button id="enter">
+  <button id="enter" type="button" onclick="enterWebsite()">
     TAP TO ENTER ✦
   </button>
 
@@ -1043,8 +1075,10 @@ footer strong {
       <a class="payment-card"
          href="upi://pay?pa=QR919448382786-1047@unionbankofindia&pn=Jamia%20Masjid&cu=INR">
 
-        <img src="https://cdn.simpleicons.org/phonepe/5F259F"
-             alt="PhonePe logo">
+        <img
+          src="https://cdn.simpleicons.org/phonepe/5F259F"
+          alt="PhonePe logo">
+
         <span>PhonePe</span>
 
       </a>
@@ -1052,8 +1086,10 @@ footer strong {
       <a class="payment-card"
          href="upi://pay?pa=QR919448382786-1047@unionbankofindia&pn=Jamia%20Masjid&cu=INR">
 
-        <img src="https://cdn.simpleicons.org/googlepay/4285F4"
-             alt="Google Pay logo">
+        <img
+          src="https://cdn.simpleicons.org/googlepay/4285F4"
+          alt="Google Pay logo">
+
         <span>Google Pay</span>
 
       </a>
@@ -1061,8 +1097,10 @@ footer strong {
       <a class="payment-card"
          href="upi://pay?pa=QR919448382786-1047@unionbankofindia&pn=Jamia%20Masjid&cu=INR">
 
-        <img src="https://cdn.simpleicons.org/paytm/00BAF2"
-             alt="Paytm logo">
+        <img
+          src="https://cdn.simpleicons.org/paytm/00BAF2"
+          alt="Paytm logo">
+
         <span>Paytm</span>
 
       </a>
@@ -1127,15 +1165,18 @@ footer strong {
       </div>
 
       <div class="prayer-row location-row">
+
         <span>🗺️ Location</span>
 
         <span>
-          <a href="https://maps.app.goo.gl/KtFTmPmjbosAxt1j6"
-             target="_blank"
-             rel="noopener noreferrer">
+          <a
+            href="https://maps.app.goo.gl/KtFTmPmjbosAxt1j6"
+            target="_blank"
+            rel="noopener noreferrer">
             View Map ↗
           </a>
         </span>
+
       </div>
 
     </div>
@@ -1146,9 +1187,10 @@ footer strong {
 
   <footer>
 
-    <img src="footer-left.jpg"
-         alt="Jamia Masjid"
-         class="footer-photo left">
+    <img
+      src="footer-left.jpg"
+      alt="Jamia Masjid"
+      class="footer-photo left">
 
     <div class="footer-symbol">
       ✦ ━━━━━━━━━ ✦
@@ -1160,38 +1202,47 @@ footer strong {
 
     May Allah bless our community.
 
-    <img src="footer-right.jpg"
-         alt="Jamia Masjid"
-         class="footer-photo right">
+    <img
+      src="footer-right.jpg"
+      alt="Jamia Masjid"
+      class="footer-photo right">
 
   </footer>
 
 </div>
 
-<!-- JAVASCRIPT -->
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script>
 
-document.addEventListener("DOMContentLoaded", function () {
+/* =========================
+   ENTER WEBSITE
+========================= */
 
-  const enterButton = document.getElementById("enter");
+function enterWebsite() {
+
   const intro = document.getElementById("intro");
   const website = document.getElementById("website");
+  const button = document.getElementById("enter");
   const music = document.getElementById("backgroundMusic");
 
-  let entered = false;
+  if (!intro || !website || !button) {
+    return;
+  }
 
-  /* ENTER WEBSITE AND START NASHEED */
+  if (button.disabled) {
+    return;
+  }
 
-  enterButton.addEventListener("click", function () {
+  button.disabled = true;
+  button.textContent = "WELCOME TO JAMIA MASJID";
 
-    if (entered) return;
-    entered = true;
+  /*
+     SHOW WEBSITE IMMEDIATELY.
+     AUDIO IS NOT REQUIRED FOR THIS.
+  */
 
-    enterButton.disabled = true;
-    enterButton.textContent = "WELCOME TO JAMIA MASJID";
-
-    music.volume = 0.02;
-
-    music.play().catch(function (error) {
-      console.log("Audio could not start:", 
+  website.style.display = "block";
+  website.classList
