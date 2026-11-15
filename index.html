@@ -5,18 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Jamia Masjid</title>
 
 <style>
 
-/* =========================
-   PREMIUM THEME
-========================= */
+/* GENERAL THEME */
 
 :root {
   --green: #123d2e;
   --dark-green: #082c20;
-  --deep-green: #03150e;
   --gold: #bd984b;
   --dark-gold: #8c6729;
   --light-gold: #e4d0a0;
@@ -36,7 +34,7 @@ html {
 }
 
 body {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Georgia, serif;
   color: var(--text);
   background-color: var(--cream);
 
@@ -57,48 +55,29 @@ body {
     );
 }
 
-/* =========================
-   OPENING SCREEN
-========================= */
+/* OPENING SCREEN */
 
 #intro {
   position: fixed;
   inset: 0;
-  z-index: 10000;
-
-  background:
-    radial-gradient(
-      circle at center,
-      #123d2e,
-      #03150e 75%
-    );
-
+  z-index: 100;
+  background: #03150e;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   text-align: center;
   padding: 20px;
-
-  opacity: 1;
-  visibility: visible;
-
-  transition: opacity 1.2s ease;
+  transition: opacity 2s ease;
 }
 
 .mosque {
   width: 85%;
   max-width: 1000px;
-
   overflow: hidden;
-  border-radius: 15px;
-
+  border-radius: 14px;
   border: 2px solid var(--gold);
-
-  box-shadow:
-    0 0 0 5px rgba(189,152,75,0.10),
-    0 15px 45px rgba(0,0,0,0.4);
+  box-shadow: 0 0 30px #bd984b55;
 }
 
 .mosque img {
@@ -106,43 +85,33 @@ body {
   max-height: 55vh;
   object-fit: contain;
   display: block;
+  filter: brightness(0.15);
+  transition: filter 3s ease;
+}
 
-  filter: brightness(0.75);
+#intro.lit .mosque img {
+  filter: brightness(1.15);
 }
 
 #intro h1 {
   color: #f0dfb5;
-
-  font-size: clamp(25px, 5vw, 42px);
-  letter-spacing: 6px;
-
-  margin: 30px 0 25px;
-
-  text-shadow: 0 0 18px #bd984b77;
+  font-size: clamp(22px, 5vw, 36px);
+  letter-spacing: 5px;
+  margin: 28px 0 22px;
+  text-shadow: 0 0 18px #bd984b;
 }
 
 #enter {
-  position: relative;
-  z-index: 10001;
-
   background: transparent;
   border: 1px solid var(--gold);
-
   color: #f0dfb5;
-
-  padding: 17px 40px;
+  padding: 15px 35px;
   border-radius: 40px;
-
-  font-family: Georgia, serif;
   font-size: 14px;
   letter-spacing: 3px;
-
   cursor: pointer;
-  touch-action: manipulation;
-
-  box-shadow: 0 0 18px #bd984b44;
-
-  transition: 0.3s;
+  box-shadow: 0 0 15px #bd984b44;
+  transition: 0.4s;
 }
 
 #enter:hover {
@@ -150,34 +119,30 @@ body {
   color: var(--dark-green);
 }
 
-#enter:active {
-  transform: scale(0.97);
+#enter:disabled {
+  opacity: 0.8;
 }
 
 #intro.hide {
   opacity: 0;
-  visibility: hidden;
   pointer-events: none;
 }
 
-/* =========================
-   MAIN WEBSITE
-========================= */
+/* MAIN WEBSITE */
 
 #website {
   display: none;
-  width: 100%;
 }
 
 #website.show {
   display: block;
-  animation: appear 1s ease;
+  animation: appear 1.8s ease;
 }
 
 @keyframes appear {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(15px);
   }
 
   to {
@@ -186,20 +151,17 @@ body {
   }
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER WITH BACKGROUND IMAGE */
 
 header {
   position: relative;
   text-align: center;
-
   color: #f7e9c8;
 
   background:
     linear-gradient(
-      rgba(5,32,23,0.75),
-      rgba(5,32,23,0.84)
+      rgba(8,44,32,0.78),
+      rgba(8,44,32,0.82)
     ),
     url("https://raw.githubusercontent.com/mohammedsufiyan1911-hash/Jamia-Masjid-/main/masjid-night.png");
 
@@ -207,145 +169,111 @@ header {
   background-position: center;
   background-repeat: no-repeat;
 
-  padding: 65px 20px 50px;
-
+  padding: 65px 20px 55px;
   border-bottom: 4px double var(--gold);
 }
 
 header::before {
   content: "✦";
   display: block;
-
   color: var(--gold);
   font-size: 22px;
-
-  margin-bottom: 13px;
+  margin-bottom: 12px;
 }
 
 header::after {
   content: "✦";
   display: block;
-
   color: var(--gold);
   font-size: 18px;
-
-  margin-top: 18px;
+  margin-top: 17px;
 }
 
 header h1 {
-  font-size: clamp(30px, 6vw, 47px);
-  letter-spacing: 6px;
-
-  margin-bottom: 14px;
-
-  font-weight: normal;
-
-  text-shadow: 0 3px 15px #0009;
+  font-size: clamp(29px, 6vw, 45px);
+  letter-spacing: 5px;
+  margin-bottom: 13px;
+  text-shadow: 0 2px 12px #0008;
 }
 
 header p {
   color: #e6d4aa;
-
-  font-size: 14px;
-  letter-spacing: 2px;
-  line-height: 1.8;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #0008;
 }
 
-/* =========================
-   NAVIGATION
-========================= */
+/* NAVIGATION */
 
 nav {
-  background: linear-gradient(
-    to bottom,
-    #123d2e,
-    #082c20
-  );
-
-  padding: 15px 10px;
-
+  background: var(--dark-green);
+  padding: 17px 10px;
   text-align: center;
-
   position: sticky;
   top: 0;
-  z-index: 100;
-
+  z-index: 5;
   border-bottom: 2px solid var(--gold);
-
-  box-shadow: 0 5px 15px #0002;
+  box-shadow: 0 4px 12px #0002;
 }
 
 nav a {
   color: #f5e8c8;
   text-decoration: none;
-
   display: inline-block;
-
-  margin: 5px 12px;
-
-  font-size: 13px;
-  letter-spacing: 1px;
-
+  margin: 5px 10px;
+  font-size: 14px;
   transition: 0.3s;
 }
 
 nav a:hover {
-  color: var(--light-gold);
+  color: #e7c778;
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* SECTIONS */
 
 section {
-  max-width: 1050px;
+  max-width: 1000px;
   margin: auto;
-
   padding: 60px 25px;
-
   text-align: center;
-
-  scroll-margin-top: 80px;
+  scroll-margin-top: 75px;
 }
 
 section h2 {
+  display: block;
   position: relative;
-
   color: var(--green);
-
-  font-size: clamp(27px, 5vw, 37px);
-  font-weight: normal;
-
+  font-size: clamp(27px, 5vw, 38px);
   margin-bottom: 30px;
-  padding-bottom: 20px;
+  padding-bottom: 17px;
 }
+
+/* GOLDEN ORNAMENT */
 
 section h2::after {
   content: "✦";
-
   display: block;
   position: absolute;
-
   width: 100%;
-  max-width: 450px;
-
+  max-width: 550px;
   left: 50%;
   transform: translateX(-50%);
-
-  bottom: -3px;
-
+  bottom: -5px;
   color: var(--dark-gold);
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1;
-
   background:
     linear-gradient(
       to right,
-      transparent,
-      var(--gold),
-      transparent
+      transparent 0%,
+      var(--gold) 10%,
+      var(--gold) 43%,
+      transparent 43%,
+      transparent 57%,
+      var(--gold) 57%,
+      var(--gold) 90%,
+      transparent 100%
     );
-
   background-size: 100% 1px;
   background-position: center;
   background-repeat: no-repeat;
@@ -353,54 +281,32 @@ section h2::after {
 
 section p {
   color: #594b39;
-
   line-height: 1.9;
-  font-size: 15px;
-
-  max-width: 780px;
-
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 16px;
 }
 
-/* =========================
-   PRAYER CARDS
-========================= */
+/* PRAYER AND BANK CARDS */
 
 .prayers {
-  max-width: 680px;
-
-  margin: 28px auto 0;
-  padding: 24px 28px;
-
-  background: linear-gradient(
-    145deg,
-    #fbf2df,
-    #f2e5ca
-  );
-
-  border: 1px solid var(--gold);
-  border-radius: 20px;
-
-  box-shadow:
-    0 8px 25px rgba(80,55,20,0.08),
-    inset 0 0 0 4px rgba(189,152,75,0.07);
+  max-width: 650px;
+  margin: 25px auto 0;
+  padding: 24px 30px;
+  background: var(--card);
+  border: 1.5px solid var(--gold);
+  border-radius: 28px;
+  box-shadow: 0 5px 18px #8c672918;
+  position: relative;
 }
 
 .prayer-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   gap: 12px;
-
-  padding: 15px 9px;
-
-  border-bottom: 1px solid rgba(189,152,75,0.28);
-
+  padding: 15px 8px;
+  border-bottom: 1px solid #d9c69d;
   color: var(--green);
-  font-size: 16px;
-
+  font-size: 17px;
   transition: background 0.3s ease;
 }
 
@@ -434,10 +340,12 @@ section p {
 .bank-details .prayer-row span:last-child {
   flex-shrink: 0;
   white-space: nowrap;
-  font-size: clamp(11px, 3.5vw, 16px);
+  overflow-wrap: normal;
+  text-align: right;
+  font-size: clamp(12px, 3.5vw, 17px);
 }
 
-/* LOCATION */
+/* LOCATION ALIGNMENT */
 
 .location-row {
   gap: 8px;
@@ -450,6 +358,7 @@ section p {
 
 .location-row span:last-child {
   white-space: nowrap;
+  overflow-wrap: normal;
   flex-shrink: 0;
   text-align: right;
 }
@@ -457,23 +366,15 @@ section p {
 .location-row a {
   color: var(--dark-gold);
   font-weight: bold;
-  text-decoration: none;
-
-  border-bottom: 1px solid var(--gold);
-  padding-bottom: 2px;
+  text-decoration: underline;
 }
 
 /* ACTIVE PRAYER */
 
 .prayer-row.active-prayer {
-  background: linear-gradient(
-    90deg,
-    #e8d5a8,
-    #f1e2bf
-  );
-
-  border-radius: 9px;
-  box-shadow: 0 3px 12px #bd984b22;
+  background: #e4d0a0;
+  border-radius: 10px;
+  box-shadow: 0 0 12px #bd984b35;
 }
 
 .prayer-row.active-prayer span {
@@ -482,248 +383,168 @@ section p {
 
 .prayer-row.active-prayer span:first-child::after {
   content: "  ● NOW";
-
   color: var(--dark-gold);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: bold;
 }
 
-/* =========================
-   FACILITIES
-========================= */
+/* FACILITIES */
 
 .facility-grid {
   display: grid;
-
   grid-template-columns: repeat(2, 1fr);
-
-  gap: 22px;
-
+  gap: 20px;
   max-width: 900px;
-
   margin: 35px auto 0;
 }
 
 .facility-card {
   background: var(--card);
-
-  border: 1px solid var(--gold);
-  border-radius: 17px;
-
+  border: 2px solid var(--gold);
+  border-radius: 25px;
   overflow: hidden;
-
-  box-shadow: 0 7px 20px rgba(65,45,15,0.10);
-
+  box-shadow: 0 5px 16px #8c672922;
   transition: 0.35s;
 }
 
 .facility-card:hover {
-  transform: translateY(-5px);
-
-  box-shadow: 0 12px 26px rgba(65,45,15,0.18);
+  transform: translateY(-6px);
+  box-shadow: 0 9px 22px #8c672940;
 }
 
 .facility-card img {
   width: 100%;
-  height: 200px;
-
+  height: 190px;
   object-fit: cover;
   display: block;
-
   border-bottom: 2px solid var(--gold);
 }
 
 .facility-card h3 {
-  background: linear-gradient(
-    to right,
-    #082c20,
-    #174b37,
-    #082c20
-  );
-
+  background: var(--green);
   color: #fff4d9;
-
-  padding: 15px 6px;
-
-  font-size: 16px;
-  font-weight: normal;
+  padding: 16px 5px;
+  font-size: 17px;
+  border-top: 1px solid var(--light-gold);
 }
 
-/* =========================
-   DONATIONS
-========================= */
+/* DONATIONS */
 
 #donate h3 {
   color: var(--green);
-
-  font-size: 20px;
-  font-weight: normal;
-
+  font-size: 22px;
   margin-top: 30px;
   margin-bottom: 12px;
 }
 
 .payment-options {
   display: flex;
-
   justify-content: center;
   align-items: center;
-
   flex-wrap: wrap;
-
-  gap: 15px;
-
+  gap: 18px;
   margin: 28px auto;
 }
 
 .payment-card {
-  background: linear-gradient(
-    145deg,
-    #fffdf7,
-    #f4ead7
-  );
-
-  padding: 17px 12px;
-
-  border: 1px solid var(--gold);
-  border-radius: 15px;
-
-  width: 110px;
-  min-height: 115px;
-
+  background: #fffaf0;
+  padding: 18px 12px;
+  border: 1.5px solid var(--gold);
+  border-radius: 17px;
+  width: 115px;
+  min-height: 120px;
   text-decoration: none;
   color: var(--green);
-
-  box-shadow: 0 5px 15px #8c67291a;
-
+  box-shadow: 0 3px 12px #8c67291a;
   transition: 0.3s;
-
   display: flex;
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
 }
 
 .payment-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 9px 20px #8c672933;
+  box-shadow: 0 6px 16px #8c672933;
 }
 
 .payment-card img {
-  width: 42px;
-  height: 42px;
-
+  width: 43px;
+  height: 43px;
   object-fit: contain;
-
   margin-bottom: 10px;
 }
 
 .payment-card span {
   font-family: Arial, sans-serif;
-
-  font-size: 12px;
+  font-size: 13px;
   font-weight: bold;
 }
 
 #donate hr {
   border: 0;
-  height: 1px;
-
+  height: 1.5px;
   background: linear-gradient(
     to right,
     transparent,
     var(--gold),
     transparent
   );
-
   margin: 40px auto;
   max-width: 600px;
 }
 
-.upi-details {
-  margin-top: 18px;
+/* UPI ID */
 
+.upi-details {
+  margin-top: 15px;
   color: var(--dark-gold);
   font-weight: bold;
-
-  line-height: 1.9;
   overflow-wrap: anywhere;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER WITH CIRCULAR PHOTOS */
 
 footer {
   position: relative;
-
-  background: linear-gradient(
-    135deg,
-    #061f17,
-    #123d2e,
-    #061f17
-  );
-
+  background: var(--dark-green);
   color: #f1e2bd;
-
   text-align: center;
-
-  padding: 28px 70px;
-
-  min-height: 110px;
-
+  padding: 25px 70px;
+  min-height: 105px;
   line-height: 2;
-
   border-top: 4px double var(--gold);
-
   letter-spacing: 1px;
-  font-size: 13px;
 }
 
 .footer-symbol {
   color: var(--gold);
-  font-size: 16px;
+  font-size: 17px;
   margin-bottom: 5px;
-}
-
-footer strong {
-  font-size: 16px;
-  font-weight: normal;
-  letter-spacing: 2px;
 }
 
 .footer-photo {
   position: absolute;
-
-  bottom: 12px;
-
+  bottom: 10px;
   width: 48px;
   height: 48px;
-
   object-fit: cover;
-
   border-radius: 50%;
-
-  border: 2px solid var(--gold);
+  border: 3px solid var(--gold);
   padding: 2px;
-
   background: var(--dark-green);
-
-  box-shadow: 0 0 0 3px #bd984b22;
+  box-shadow: 0 0 0 1px var(--light-gold);
 }
 
 .footer-photo.left {
-  left: 13px;
+  left: 12px;
 }
 
 .footer-photo.right {
-  right: 13px;
+  right: 12px;
 }
 
-/* =========================
-   MOBILE DESIGN
-========================= */
+/* MOBILE DESIGN */
 
 @media (max-width: 600px) {
 
@@ -739,12 +560,8 @@ footer strong {
     letter-spacing: 3px;
   }
 
-  #enter {
-    padding: 15px 30px;
-  }
-
   header {
-    padding: 48px 15px 40px;
+    padding: 48px 15px;
     background-position: center;
   }
 
@@ -752,18 +569,13 @@ footer strong {
     letter-spacing: 3px;
   }
 
-  header p {
-    font-size: 12px;
-    letter-spacing: 1px;
-  }
-
   nav {
-    padding: 11px 4px;
+    padding: 12px 5px;
   }
 
   nav a {
-    font-size: 11px;
-    margin: 5px 7px;
+    font-size: 12px;
+    margin: 5px 6px;
   }
 
   section {
@@ -775,36 +587,31 @@ footer strong {
   }
 
   section p {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .prayers {
-    padding: 17px 14px;
-    border-radius: 17px;
+    padding: 18px 16px;
+    border-radius: 22px;
   }
 
   .prayer-row {
-    font-size: 14px;
-    padding: 14px 6px;
+    font-size: 15px;
+    padding: 14px 5px;
   }
 
   .facility-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    margin-top: 28px;
-  }
-
-  .facility-card {
-    border-radius: 13px;
+    grid-template-columns: 1fr;
+    max-width: 350px;
+    gap: 22px;
   }
 
   .facility-card img {
-    height: 125px;
+    height: 200px;
   }
 
   .facility-card h3 {
-    font-size: 12px;
-    padding: 12px 4px;
+    font-size: 18px;
   }
 
   .payment-options {
@@ -812,37 +619,19 @@ footer strong {
   }
 
   .payment-card {
-    width: 95px;
-    min-height: 105px;
-    padding: 13px 8px;
-  }
-
-  .payment-card img {
-    width: 35px;
-    height: 35px;
-  }
-
-  .payment-card span {
-    font-size: 11px;
-  }
-
-  .bank-details .prayer-row span:last-child {
-    font-size: 11px;
+    width: 100px;
   }
 
   footer {
-    padding: 24px 55px;
-    min-height: 100px;
-    font-size: 11px;
-  }
-
-  footer strong {
-    font-size: 13px;
+    padding: 22px 60px;
+    min-height: 95px;
+    font-size: 12px;
   }
 
   .footer-photo {
-    width: 37px;
-    height: 37px;
+    width: 38px;
+    height: 38px;
+    bottom: 10px;
   }
 
   .footer-photo.left {
@@ -854,31 +643,12 @@ footer strong {
   }
 
   .footer-symbol {
-    font-size: 12px;
-  }
-
-}
-
-@media (max-width: 350px) {
-
-  .facility-grid {
-    grid-template-columns: 1fr;
-    max-width: 280px;
-  }
-
-  .facility-card img {
-    height: 175px;
-  }
-
-  nav a {
-    margin: 5px;
-    font-size: 10px;
+    font-size: 13px;
   }
 
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   html {
     scroll-behavior: auto;
   }
@@ -889,7 +659,6 @@ footer strong {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
-
 }
 
 </style>
@@ -897,12 +666,12 @@ footer strong {
 
 <body>
 
-<!-- NASHEED -->
+<!-- BACKGROUND NASHEED -->
 
 <audio
   id="backgroundMusic"
   src="jamia-masjid-nasheed.mp3"
-  preload="none"
+  preload="auto"
   loop>
 </audio>
 
@@ -918,13 +687,8 @@ footer strong {
 
   <h1>JAMIA MASJID</h1>
 
-  <button
-    id="enter"
-    type="button"
-    onclick="enterWebsite()">
-
+  <button id="enter">
     TAP TO ENTER ✦
-
   </button>
 
 </div>
@@ -936,23 +700,18 @@ footer strong {
   <!-- HEADER -->
 
   <header>
-
     <h1>JAMIA MASJID</h1>
-
     <p>A place of prayer, peace and community</p>
-
   </header>
 
   <!-- NAVIGATION -->
 
   <nav>
-
     <a href="#about">About</a>
     <a href="#prayer">Namaz Times</a>
     <a href="#facilities">Facilities</a>
     <a href="#donate">Donate</a>
     <a href="#contact">Contact</a>
-
   </nav>
 
   <!-- ABOUT -->
@@ -1086,10 +845,8 @@ footer strong {
       <a class="payment-card"
          href="upi://pay?pa=QR919448382786-1047@unionbankofindia&pn=Jamia%20Masjid&cu=INR">
 
-        <img
-          src="https://cdn.simpleicons.org/phonepe/5F259F"
-          alt="PhonePe logo">
-
+        <img src="https://cdn.simpleicons.org/phonepe/5F259F"
+             alt="PhonePe logo">
         <span>PhonePe</span>
 
       </a>
@@ -1097,10 +854,8 @@ footer strong {
       <a class="payment-card"
          href="upi://pay?pa=QR919448382786-1047@unionbankofindia&pn=Jamia%20Masjid&cu=INR">
 
-        <img
-          src="https://cdn.simpleicons.org/googlepay/4285F4"
-          alt="Google Pay logo">
-
+        <img src="https://cdn.simpleicons.org/googlepay/4285F4"
+             alt="Google Pay logo">
         <span>Google Pay</span>
 
       </a>
@@ -1108,10 +863,8 @@ footer strong {
       <a class="payment-card"
          href="upi://pay?pa=QR919448382786-1047@unionbankofindia&pn=Jamia%20Masjid&cu=INR">
 
-        <img
-          src="https://cdn.simpleicons.org/paytm/00BAF2"
-          alt="Paytm logo">
-
+        <img src="https://cdn.simpleicons.org/paytm/00BAF2"
+             alt="Paytm logo">
         <span>Paytm</span>
 
       </a>
@@ -1151,7 +904,7 @@ footer strong {
 
     </div>
 
-    <p style="margin-top:22px;">
+    <p style="margin-top:20px;">
       May Allah reward you for your generosity.
     </p>
 
@@ -1176,18 +929,15 @@ footer strong {
       </div>
 
       <div class="prayer-row location-row">
-
         <span>🗺️ Location</span>
 
         <span>
-          <a
-            href="https://maps.app.goo.gl/KtFTmPmjbosAxt1j6"
-            target="_blank"
-            rel="noopener noreferrer">
+          <a href="https://maps.app.goo.gl/KtFTmPmjbosAxt1j6"
+             target="_blank"
+             rel="noopener noreferrer">
             View Map ↗
           </a>
         </span>
-
       </div>
 
     </div>
@@ -1198,10 +948,9 @@ footer strong {
 
   <footer>
 
-    <img
-      src="footer-left.jpg"
-      alt="Jamia Masjid"
-      class="footer-photo left">
+    <img src="footer-left.jpg"
+         alt="Jamia Masjid"
+         class="footer-photo left">
 
     <div class="footer-symbol">
       ✦ ━━━━━━━━━ ✦
@@ -1213,91 +962,132 @@ footer strong {
 
     May Allah bless our community.
 
-    <img
-      src="footer-right.jpg"
-      alt="Jamia Masjid"
-      class="footer-photo right">
+    <img src="footer-right.jpg"
+         alt="Jamia Masjid"
+         class="footer-photo right">
 
   </footer>
 
 </div>
 
-<!-- =========================
-     JAVASCRIPT
-========================= -->
+<!-- JAVASCRIPT -->
 
 <script>
 
-/* OPEN MAIN WEBSITE */
+document.addEventListener("DOMContentLoaded", function () {
 
-window.enterWebsite = function() {
-
+  const enterButton = document.getElementById("enter");
   const intro = document.getElementById("intro");
   const website = document.getElementById("website");
-  const button = document.getElementById("enter");
   const music = document.getElementById("backgroundMusic");
 
-  if (!intro || !website) {
-    return;
-  }
+  let entered = false;
 
-  // Show website immediately
-  website.style.display = "block";
-  website.classList.add("show");
+  /* ENTER WEBSITE AND START NASHEED */
 
-  // Hide opening screen
-  intro.classList.add("hide");
+  enterButton.addEventListener("click", function () {
 
-  // Prevent repeated button clicks
-  if (button) {
-    button.disabled = true;
-    button.textContent = "WELCOME TO JAMIA MASJID";
-  }
+    if (entered) return;
+    entered = true;
 
-  // Start nasheed if possible
-  // Audio failure will not affect the website
-  if (music) {
+    enterButton.disabled = true;
+    enterButton.textContent = "WELCOME TO JAMIA MASJID";
 
     music.volume = 0.02;
 
-    try {
+    music.play().catch(function (error) {
+      console.log("Audio could not start:", error);
+    });
 
-      const result = music.play();
+    intro.classList.add("lit");
 
-      if (result && result.catch) {
-        result.catch(function(error) {
-          console.log("Audio could not play:", error);
-        });
+    setTimeout(function () {
+      intro.classList.add("hide");
+      website.classList.add("show");
+    }, 3000);
+
+    setTimeout(function () {
+      intro.style.display = "none";
+    }, 5200);
+
+  });
+
+  /* STOP MUSIC WHEN VISITOR SWITCHES TABS OR APPS */
+
+  document.addEventListener("visibilitychange", function () {
+
+    if (document.hidden) {
+      music.pause();
+    }
+
+  });
+
+  /* STOP MUSIC WHEN VISITOR LEAVES THE PAGE */
+
+  window.addEventListener("pagehide", function () {
+    music.pause();
+  });
+
+  /* AUTOMATIC NAMAZ HIGHLIGHT */
+
+  function updatePrayerHighlight() {
+
+    const now = new Date();
+
+    const currentMinutes =
+      now.getHours() * 60 + now.getMinutes();
+
+    const isFriday = now.getDay() === 5;
+
+    const jumuahActive =
+      isFriday &&
+      currentMinutes >= 750 &&
+      currentMinutes < 840;
+
+    const prayers = [
+      { id: "fajr", start: 295, end: 377 },
+      { id: "dhuhr", start: 723, end: 964 },
+      { id: "jumuah", start: 750, end: 840, fridayOnly: true },
+      { id: "asr", start: 964, end: 1074 },
+      { id: "maghrib", start: 1077, end: 1152 },
+      { id: "isha", start: 1152, end: 295 }
+    ];
+
+    prayers.forEach(function (prayer) {
+
+      const element = document.getElementById(prayer.id);
+
+      if (!element) return;
+
+      let active =
+        (!prayer.fridayOnly || isFriday) &&
+        (
+          prayer.start < prayer.end
+            ? currentMinutes >= prayer.start &&
+              currentMinutes < prayer.end
+            : currentMinutes >= prayer.start ||
+              currentMinutes < prayer.end
+        );
+
+      /* JUMU'AH TAKES PRIORITY OVER DHUHR ON FRIDAY */
+
+      if (prayer.id === "dhuhr" && jumuahActive) {
+        active = false;
       }
 
-    } catch (error) {
-      console.log("Audio unavailable:", error);
-    }
+      element.classList.toggle("active-prayer", active);
+
+    });
 
   }
 
-  // Remove opening screen after transition
-  setTimeout(function() {
-    intro.style.display = "none";
-  }, 1300);
+  updatePrayerHighlight();
 
-  window.scrollTo(0, 0);
+  setInterval(updatePrayerHighlight, 30000);
 
-};
+});
 
+</script>
 
-/* AUTOMATIC NAMAZ HIGHLIGHT */
-
-function updatePrayerHighlight() {
-
-  const now = new Date();
-
-  const currentMinutes =
-    now.getHours() * 60 + now.getMinutes();
-
-  const isFriday = now.getDay() === 5;
-
-  const jumuahActive =
-    isFriday &&
-    currentMinutes >= 750 &&
-    currentMinutes < 
+</body>
+</html>
