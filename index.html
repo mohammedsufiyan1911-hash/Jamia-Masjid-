@@ -10,9 +10,7 @@
 
 <style>
 
-/* =================================
-   GENERAL THEME
-================================= */
+/* GENERAL THEME */
 
 :root {
   --green: #123d2e;
@@ -40,8 +38,6 @@ body {
   color: var(--text);
   background-color: var(--cream);
 
-  /* SUBTLE GEOMETRIC TEXTURE */
-
   background-image:
     repeating-linear-gradient(
       45deg,
@@ -59,9 +55,7 @@ body {
     );
 }
 
-/* =================================
-   OPENING SCREEN
-================================= */
+/* OPENING SCREEN */
 
 #intro {
   position: fixed;
@@ -134,9 +128,7 @@ body {
   pointer-events: none;
 }
 
-/* =================================
-   MAIN WEBSITE
-================================= */
+/* MAIN WEBSITE */
 
 #website {
   display: none;
@@ -159,9 +151,7 @@ body {
   }
 }
 
-/* =================================
-   HEADER
-================================= */
+/* HEADER */
 
 header {
   position: relative;
@@ -200,9 +190,7 @@ header p {
   letter-spacing: 1px;
 }
 
-/* =================================
-   NAVIGATION
-================================= */
+/* NAVIGATION */
 
 nav {
   background: var(--dark-green);
@@ -228,9 +216,7 @@ nav a:hover {
   color: #e7c778;
 }
 
-/* =================================
-   SECTIONS
-================================= */
+/* SECTIONS */
 
 section {
   max-width: 1000px;
@@ -239,8 +225,6 @@ section {
   text-align: center;
   scroll-margin-top: 75px;
 }
-
-/* SECTION HEADINGS */
 
 section h2 {
   display: block;
@@ -288,9 +272,7 @@ section p {
   font-size: 16px;
 }
 
-/* =================================
-   DECORATIVE CARD STYLE
-================================= */
+/* DECORATIVE CARD STYLE */
 
 .prayers {
   max-width: 650px;
@@ -393,13 +375,11 @@ section p {
   font-weight: bold;
 }
 
-/* =================================
-   FACILITIES
-================================= */
+/* FACILITIES */
 
 .facility-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   max-width: 900px;
   margin: 35px auto 0;
@@ -435,9 +415,14 @@ section p {
   border-top: 1px solid var(--light-gold);
 }
 
-/* =================================
-   DONATIONS
-================================= */
+.facility-description {
+  padding: 12px 14px 16px;
+  color: #594b39;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* DONATIONS */
 
 #donate h3 {
   color: var(--green);
@@ -512,9 +497,7 @@ section p {
   overflow-wrap: anywhere;
 }
 
-/* =================================
-   FOOTER
-================================= */
+/* FOOTER */
 
 footer {
   background: var(--dark-green);
@@ -532,9 +515,7 @@ footer .footer-symbol {
   margin-bottom: 10px;
 }
 
-/* =================================
-   MOBILE RESPONSIVE DESIGN
-================================= */
+/* MOBILE RESPONSIVE DESIGN */
 
 @media (max-width: 600px) {
 
@@ -754,12 +735,16 @@ footer .footer-symbol {
 
     <div class="facility-grid">
 
+      <!-- GHUSUL KHANA -->
+
       <div class="facility-card">
         <img
           src="ghusul-khana.png"
           alt="Ghusul Khana washing facility">
         <h3>Ghusul Khana</h3>
       </div>
+
+      <!-- KHABRASTAN -->
 
       <div class="facility-card">
         <img
@@ -768,11 +753,29 @@ footer .footer-symbol {
         <h3>Khabrastan</h3>
       </div>
 
+      <!-- MAKTAB -->
+
       <div class="facility-card">
         <img
           src="maktab.jpg"
           alt="Maktab Islamic learning facility">
         <h3>Maktab</h3>
+      </div>
+
+      <!-- BOYS' ACCOMMODATION -->
+
+      <div class="facility-card">
+        <img
+          src="boys-accommodation.jpg"
+          alt="Boys' accommodation rooms">
+
+        <h3>Boys' Accommodation</h3>
+
+        <div class="facility-description">
+          Accommodation rooms available for boys.
+          For room availability and further details,
+          please contact Jamia Masjid.
+        </div>
       </div>
 
     </div>
