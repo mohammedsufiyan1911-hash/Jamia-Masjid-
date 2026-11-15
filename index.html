@@ -5,26 +5,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Jamia Masjid</title>
 
 <style>
 
 /* =========================
-   PREMIUM COLOUR THEME
+   PREMIUM THEME
 ========================= */
 
 :root {
   --green: #123d2e;
   --dark-green: #082c20;
-  --deep-green: #061f17;
+  --deep-green: #03150e;
   --gold: #bd984b;
   --dark-gold: #8c6729;
   --light-gold: #e4d0a0;
   --cream: #fff8e9;
-  --card: #f7edd9;
+  --card: #f5ead5;
   --text: #173d30;
-  --muted: #75664f;
 }
 
 * {
@@ -66,7 +64,7 @@ body {
 #intro {
   position: fixed;
   inset: 0;
-  z-index: 1000;
+  z-index: 10000;
 
   background:
     radial-gradient(
@@ -86,22 +84,21 @@ body {
   opacity: 1;
   visibility: visible;
 
-  transition:
-    opacity 1.5s ease,
-    visibility 1.5s ease;
+  transition: opacity 1.2s ease;
 }
 
 .mosque {
   width: 85%;
-  max-width: 950px;
-  overflow: hidden;
+  max-width: 1000px;
 
+  overflow: hidden;
   border-radius: 15px;
+
   border: 2px solid var(--gold);
 
   box-shadow:
     0 0 0 5px rgba(189,152,75,0.10),
-    0 15px 45px rgba(0,0,0,0.5);
+    0 15px 45px rgba(0,0,0,0.4);
 }
 
 .mosque img {
@@ -110,49 +107,51 @@ body {
   object-fit: contain;
   display: block;
 
-  filter: brightness(0.2);
-  transition: filter 2s ease;
-}
-
-#intro.lit .mosque img {
-  filter: brightness(1.1);
+  filter: brightness(0.75);
 }
 
 #intro h1 {
   color: #f0dfb5;
-  font-size: clamp(24px, 5vw, 40px);
+
+  font-size: clamp(25px, 5vw, 42px);
   letter-spacing: 6px;
+
   margin: 30px 0 25px;
-  text-shadow: 0 3px 20px #bd984b77;
+
+  text-shadow: 0 0 18px #bd984b77;
 }
 
 #enter {
+  position: relative;
+  z-index: 10001;
+
   background: transparent;
   border: 1px solid var(--gold);
+
   color: #f0dfb5;
 
-  padding: 15px 38px;
+  padding: 17px 40px;
   border-radius: 40px;
 
   font-family: Georgia, serif;
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 3px;
 
   cursor: pointer;
-  box-shadow: 0 0 18px #bd984b33;
+  touch-action: manipulation;
 
-  transition: 0.4s;
+  box-shadow: 0 0 18px #bd984b44;
+
+  transition: 0.3s;
 }
 
 #enter:hover {
   background: var(--gold);
   color: var(--dark-green);
-  transform: translateY(-3px);
 }
 
-#enter:disabled {
-  opacity: 0.8;
-  cursor: default;
+#enter:active {
+  transform: scale(0.97);
 }
 
 #intro.hide {
@@ -172,7 +171,7 @@ body {
 
 #website.show {
   display: block;
-  animation: appear 1.2s ease;
+  animation: appear 1s ease;
 }
 
 @keyframes appear {
@@ -194,11 +193,12 @@ body {
 header {
   position: relative;
   text-align: center;
+
   color: #f7e9c8;
 
   background:
     linear-gradient(
-      rgba(5,32,23,0.76),
+      rgba(5,32,23,0.75),
       rgba(5,32,23,0.84)
     ),
     url("https://raw.githubusercontent.com/mohammedsufiyan1911-hash/Jamia-Masjid-/main/masjid-night.png");
@@ -207,7 +207,7 @@ header {
   background-position: center;
   background-repeat: no-repeat;
 
-  padding: 70px 20px 55px;
+  padding: 65px 20px 50px;
 
   border-bottom: 4px double var(--gold);
 }
@@ -215,33 +215,40 @@ header {
 header::before {
   content: "✦";
   display: block;
+
   color: var(--gold);
   font-size: 22px;
-  margin-bottom: 14px;
+
+  margin-bottom: 13px;
 }
 
 header::after {
   content: "✦";
   display: block;
+
   color: var(--gold);
   font-size: 18px;
-  margin-top: 20px;
+
+  margin-top: 18px;
 }
 
 header h1 {
-  font-size: clamp(30px, 6vw, 48px);
+  font-size: clamp(30px, 6vw, 47px);
   letter-spacing: 6px;
-  margin-bottom: 15px;
+
+  margin-bottom: 14px;
+
   font-weight: normal;
+
   text-shadow: 0 3px 15px #0009;
 }
 
 header p {
   color: #e6d4aa;
+
   font-size: 14px;
   letter-spacing: 2px;
   line-height: 1.8;
-  text-shadow: 0 2px 8px #0009;
 }
 
 /* =========================
@@ -251,19 +258,21 @@ header p {
 nav {
   background: linear-gradient(
     to bottom,
-    #103b2c,
+    #123d2e,
     #082c20
   );
 
   padding: 15px 10px;
+
   text-align: center;
 
   position: sticky;
   top: 0;
-  z-index: 5;
+  z-index: 100;
 
   border-bottom: 2px solid var(--gold);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+
+  box-shadow: 0 5px 15px #0002;
 }
 
 nav a {
@@ -271,36 +280,17 @@ nav a {
   text-decoration: none;
 
   display: inline-block;
-  margin: 5px 13px;
+
+  margin: 5px 12px;
 
   font-size: 13px;
   letter-spacing: 1px;
 
   transition: 0.3s;
-  position: relative;
-}
-
-nav a::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -7px;
-
-  width: 0;
-  height: 1px;
-
-  background: var(--gold);
-  transition: 0.3s;
-
-  transform: translateX(-50%);
 }
 
 nav a:hover {
   color: var(--light-gold);
-}
-
-nav a:hover::after {
-  width: 100%;
 }
 
 /* =========================
@@ -310,31 +300,32 @@ nav a:hover::after {
 section {
   max-width: 1050px;
   margin: auto;
-  padding: 65px 28px;
+
+  padding: 60px 25px;
 
   text-align: center;
+
   scroll-margin-top: 80px;
 }
 
 section h2 {
   position: relative;
-  display: block;
 
   color: var(--green);
 
   font-size: clamp(27px, 5vw, 37px);
   font-weight: normal;
-  letter-spacing: 0.5px;
 
   margin-bottom: 30px;
-  padding-bottom: 22px;
+  padding-bottom: 20px;
 }
 
 section h2::after {
   content: "✦";
-  display: block;
 
+  display: block;
   position: absolute;
+
   width: 100%;
   max-width: 450px;
 
@@ -361,23 +352,26 @@ section h2::after {
 }
 
 section p {
-  color: var(--muted);
+  color: #594b39;
+
   line-height: 1.9;
   font-size: 15px;
 
   max-width: 780px;
+
   margin-left: auto;
   margin-right: auto;
 }
 
 /* =========================
-   PRAYER AND BANK CARDS
+   PRAYER CARDS
 ========================= */
 
 .prayers {
   max-width: 680px;
-  margin: 30px auto 0;
-  padding: 25px 30px;
+
+  margin: 28px auto 0;
+  padding: 24px 28px;
 
   background: linear-gradient(
     145deg,
@@ -391,17 +385,16 @@ section p {
   box-shadow:
     0 8px 25px rgba(80,55,20,0.08),
     inset 0 0 0 4px rgba(189,152,75,0.07);
-
-  position: relative;
 }
 
 .prayer-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   gap: 12px;
 
-  padding: 15px 10px;
+  padding: 15px 9px;
 
   border-bottom: 1px solid rgba(189,152,75,0.28);
 
@@ -441,9 +434,7 @@ section p {
 .bank-details .prayer-row span:last-child {
   flex-shrink: 0;
   white-space: nowrap;
-  overflow-wrap: normal;
-  text-align: right;
-  font-size: clamp(12px, 3.5vw, 16px);
+  font-size: clamp(11px, 3.5vw, 16px);
 }
 
 /* LOCATION */
@@ -459,7 +450,6 @@ section p {
 
 .location-row span:last-child {
   white-space: nowrap;
-  overflow-wrap: normal;
   flex-shrink: 0;
   text-align: right;
 }
@@ -468,6 +458,7 @@ section p {
   color: var(--dark-gold);
   font-weight: bold;
   text-decoration: none;
+
   border-bottom: 1px solid var(--gold);
   padding-bottom: 2px;
 }
@@ -491,10 +482,10 @@ section p {
 
 .prayer-row.active-prayer span:first-child::after {
   content: "  ● NOW";
+
   color: var(--dark-gold);
   font-size: 10px;
   font-weight: bold;
-  letter-spacing: 0.5px;
 }
 
 /* =========================
@@ -503,43 +494,43 @@ section p {
 
 .facility-grid {
   display: grid;
+
   grid-template-columns: repeat(2, 1fr);
-  gap: 23px;
+
+  gap: 22px;
 
   max-width: 900px;
-  margin: 38px auto 0;
+
+  margin: 35px auto 0;
 }
 
 .facility-card {
   background: var(--card);
+
   border: 1px solid var(--gold);
   border-radius: 17px;
+
   overflow: hidden;
 
   box-shadow: 0 7px 20px rgba(65,45,15,0.10);
 
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
+  transition: 0.35s;
 }
 
 .facility-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
+
   box-shadow: 0 12px 26px rgba(65,45,15,0.18);
 }
 
 .facility-card img {
   width: 100%;
-  height: 205px;
+  height: 200px;
+
   object-fit: cover;
   display: block;
 
   border-bottom: 2px solid var(--gold);
-  transition: transform 0.5s ease;
-}
-
-.facility-card:hover img {
-  transform: scale(1.035);
 }
 
 .facility-card h3 {
@@ -551,13 +542,11 @@ section p {
   );
 
   color: #fff4d9;
-  padding: 16px 8px;
+
+  padding: 15px 6px;
 
   font-size: 16px;
   font-weight: normal;
-  letter-spacing: 0.5px;
-
-  border-top: 1px solid var(--light-gold);
 }
 
 /* =========================
@@ -566,22 +555,25 @@ section p {
 
 #donate h3 {
   color: var(--green);
+
   font-size: 20px;
   font-weight: normal;
-  letter-spacing: 0.5px;
 
-  margin-top: 32px;
+  margin-top: 30px;
   margin-bottom: 12px;
 }
 
 .payment-options {
   display: flex;
+
   justify-content: center;
   align-items: center;
+
   flex-wrap: wrap;
 
-  gap: 17px;
-  margin: 30px auto;
+  gap: 15px;
+
+  margin: 28px auto;
 }
 
 .payment-card {
@@ -591,12 +583,12 @@ section p {
     #f4ead7
   );
 
-  padding: 18px 12px;
+  padding: 17px 12px;
 
   border: 1px solid var(--gold);
   border-radius: 15px;
 
-  width: 112px;
+  width: 110px;
   min-height: 115px;
 
   text-decoration: none;
@@ -608,6 +600,7 @@ section p {
 
   display: flex;
   flex-direction: column;
+
   align-items: center;
   justify-content: center;
 }
@@ -615,18 +608,20 @@ section p {
 .payment-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 9px 20px #8c672933;
-  border-color: var(--dark-gold);
 }
 
 .payment-card img {
   width: 42px;
   height: 42px;
+
   object-fit: contain;
-  margin-bottom: 11px;
+
+  margin-bottom: 10px;
 }
 
 .payment-card span {
   font-family: Arial, sans-serif;
+
   font-size: 12px;
   font-weight: bold;
 }
@@ -642,14 +637,16 @@ section p {
     transparent
   );
 
-  margin: 42px auto;
+  margin: 40px auto;
   max-width: 600px;
 }
 
 .upi-details {
   margin-top: 18px;
+
   color: var(--dark-gold);
   font-weight: bold;
+
   line-height: 1.9;
   overflow-wrap: anywhere;
 }
@@ -669,14 +666,17 @@ footer {
   );
 
   color: #f1e2bd;
+
   text-align: center;
 
-  padding: 30px 75px;
-  min-height: 115px;
+  padding: 28px 70px;
+
+  min-height: 110px;
 
   line-height: 2;
 
   border-top: 4px double var(--gold);
+
   letter-spacing: 1px;
   font-size: 13px;
 }
@@ -684,23 +684,25 @@ footer {
 .footer-symbol {
   color: var(--gold);
   font-size: 16px;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
 }
 
 footer strong {
   font-size: 16px;
-  letter-spacing: 2px;
   font-weight: normal;
+  letter-spacing: 2px;
 }
 
 .footer-photo {
   position: absolute;
+
   bottom: 12px;
 
-  width: 49px;
-  height: 49px;
+  width: 48px;
+  height: 48px;
 
   object-fit: cover;
+
   border-radius: 50%;
 
   border: 2px solid var(--gold);
@@ -708,17 +710,15 @@ footer strong {
 
   background: var(--dark-green);
 
-  box-shadow:
-    0 0 0 3px rgba(189,152,75,0.15),
-    0 4px 12px #0005;
+  box-shadow: 0 0 0 3px #bd984b22;
 }
 
 .footer-photo.left {
-  left: 15px;
+  left: 13px;
 }
 
 .footer-photo.right {
-  right: 15px;
+  right: 13px;
 }
 
 /* =========================
@@ -739,6 +739,10 @@ footer strong {
     letter-spacing: 3px;
   }
 
+  #enter {
+    padding: 15px 30px;
+  }
+
   header {
     padding: 48px 15px 40px;
     background-position: center;
@@ -754,7 +758,7 @@ footer strong {
   }
 
   nav {
-    padding: 11px 3px;
+    padding: 11px 4px;
   }
 
   nav a {
@@ -763,7 +767,7 @@ footer strong {
   }
 
   section {
-    padding: 48px 17px;
+    padding: 45px 17px;
   }
 
   section h2 {
@@ -827,7 +831,7 @@ footer strong {
   }
 
   footer {
-    padding: 25px 55px;
+    padding: 24px 55px;
     min-height: 100px;
     font-size: 11px;
   }
@@ -839,7 +843,6 @@ footer strong {
   .footer-photo {
     width: 37px;
     height: 37px;
-    bottom: 12px;
   }
 
   .footer-photo.left {
@@ -874,8 +877,6 @@ footer strong {
 
 }
 
-/* ACCESSIBILITY */
-
 @media (prefers-reduced-motion: reduce) {
 
   html {
@@ -896,12 +897,12 @@ footer strong {
 
 <body>
 
-<!-- BACKGROUND NASHEED -->
+<!-- NASHEED -->
 
 <audio
   id="backgroundMusic"
   src="jamia-masjid-nasheed.mp3"
-  preload="auto"
+  preload="none"
   loop>
 </audio>
 
@@ -917,8 +918,13 @@ footer strong {
 
   <h1>JAMIA MASJID</h1>
 
-  <button id="enter" type="button" onclick="enterWebsite()">
+  <button
+    id="enter"
+    type="button"
+    onclick="enterWebsite()">
+
     TAP TO ENTER ✦
+
   </button>
 
 </div>
@@ -930,18 +936,23 @@ footer strong {
   <!-- HEADER -->
 
   <header>
+
     <h1>JAMIA MASJID</h1>
+
     <p>A place of prayer, peace and community</p>
+
   </header>
 
   <!-- NAVIGATION -->
 
   <nav>
+
     <a href="#about">About</a>
     <a href="#prayer">Namaz Times</a>
     <a href="#facilities">Facilities</a>
     <a href="#donate">Donate</a>
     <a href="#contact">Contact</a>
+
   </nav>
 
   <!-- ABOUT -->
@@ -1217,32 +1228,76 @@ footer strong {
 
 <script>
 
-/* =========================
-   ENTER WEBSITE
-========================= */
+/* OPEN MAIN WEBSITE */
 
-function enterWebsite() {
+window.enterWebsite = function() {
 
   const intro = document.getElementById("intro");
   const website = document.getElementById("website");
   const button = document.getElementById("enter");
   const music = document.getElementById("backgroundMusic");
 
-  if (!intro || !website || !button) {
+  if (!intro || !website) {
     return;
   }
 
-  if (button.disabled) {
-    return;
-  }
-
-  button.disabled = true;
-  button.textContent = "WELCOME TO JAMIA MASJID";
-
-  /*
-     SHOW WEBSITE IMMEDIATELY.
-     AUDIO IS NOT REQUIRED FOR THIS.
-  */
-
+  // Show website immediately
   website.style.display = "block";
-  website.classList
+  website.classList.add("show");
+
+  // Hide opening screen
+  intro.classList.add("hide");
+
+  // Prevent repeated button clicks
+  if (button) {
+    button.disabled = true;
+    button.textContent = "WELCOME TO JAMIA MASJID";
+  }
+
+  // Start nasheed if possible
+  // Audio failure will not affect the website
+  if (music) {
+
+    music.volume = 0.02;
+
+    try {
+
+      const result = music.play();
+
+      if (result && result.catch) {
+        result.catch(function(error) {
+          console.log("Audio could not play:", error);
+        });
+      }
+
+    } catch (error) {
+      console.log("Audio unavailable:", error);
+    }
+
+  }
+
+  // Remove opening screen after transition
+  setTimeout(function() {
+    intro.style.display = "none";
+  }, 1300);
+
+  window.scrollTo(0, 0);
+
+};
+
+
+/* AUTOMATIC NAMAZ HIGHLIGHT */
+
+function updatePrayerHighlight() {
+
+  const now = new Date();
+
+  const currentMinutes =
+    now.getHours() * 60 + now.getMinutes();
+
+  const isFriday = now.getDay() === 5;
+
+  const jumuahActive =
+    isFriday &&
+    currentMinutes >= 750 &&
+    currentMinutes < 
