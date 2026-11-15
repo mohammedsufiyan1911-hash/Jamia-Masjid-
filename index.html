@@ -10,17 +10,21 @@
 
 <style>
 
-/* GENERAL THEME */
+/* ==============================
+   PREMIUM JAMIA MASJID THEME
+============================== */
 
 :root {
   --green: #123d2e;
   --dark-green: #082c20;
+  --deep-green: #061f17;
   --gold: #bd984b;
   --dark-gold: #8c6729;
   --light-gold: #e4d0a0;
   --cream: #fff8e9;
-  --card: #f5ead5;
+  --card: #f7edd9;
   --text: #173d30;
+  --muted: #75664f;
 }
 
 * {
@@ -34,7 +38,7 @@ html {
 }
 
 body {
-  font-family: Georgia, serif;
+  font-family: Georgia, "Times New Roman", serif;
   color: var(--text);
   background-color: var(--cream);
 
@@ -55,29 +59,39 @@ body {
     );
 }
 
-/* OPENING SCREEN */
+/* ==============================
+   OPENING SCREEN
+============================== */
 
 #intro {
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: #03150e;
+  background:
+    radial-gradient(
+      circle at center,
+      #123d2e,
+      #03150e 75%
+    );
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 20px;
-  transition: opacity 2s ease;
+  transition: opacity 1.8s ease;
 }
 
 .mosque {
   width: 85%;
-  max-width: 1000px;
+  max-width: 950px;
   overflow: hidden;
-  border-radius: 14px;
+  border-radius: 15px;
   border: 2px solid var(--gold);
-  box-shadow: 0 0 30px #bd984b55;
+  box-shadow:
+    0 0 0 5px rgba(189,152,75,0.10),
+    0 15px 45px rgba(0,0,0,0.5);
 }
 
 .mosque img {
@@ -95,28 +109,29 @@ body {
 
 #intro h1 {
   color: #f0dfb5;
-  font-size: clamp(22px, 5vw, 36px);
-  letter-spacing: 5px;
-  margin: 28px 0 22px;
-  text-shadow: 0 0 18px #bd984b;
+  font-size: clamp(24px, 5vw, 40px);
+  letter-spacing: 6px;
+  margin: 30px 0 25px;
+  text-shadow: 0 3px 20px #bd984b77;
 }
 
 #enter {
   background: transparent;
   border: 1px solid var(--gold);
   color: #f0dfb5;
-  padding: 15px 35px;
+  padding: 15px 38px;
   border-radius: 40px;
-  font-size: 14px;
+  font-size: 13px;
   letter-spacing: 3px;
   cursor: pointer;
-  box-shadow: 0 0 15px #bd984b44;
+  box-shadow: 0 0 18px #bd984b33;
   transition: 0.4s;
 }
 
 #enter:hover {
   background: var(--gold);
   color: var(--dark-green);
+  transform: translateY(-3px);
 }
 
 #enter:disabled {
@@ -128,7 +143,9 @@ body {
   pointer-events: none;
 }
 
-/* MAIN WEBSITE */
+/* ==============================
+   MAIN WEBSITE
+============================== */
 
 #website {
   display: none;
@@ -136,13 +153,13 @@ body {
 
 #website.show {
   display: block;
-  animation: appear 1.8s ease;
+  animation: appear 1.5s ease;
 }
 
 @keyframes appear {
   from {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(12px);
   }
 
   to {
@@ -151,7 +168,9 @@ body {
   }
 }
 
-/* HEADER WITH BACKGROUND IMAGE */
+/* ==============================
+   PREMIUM HEADER
+============================== */
 
 header {
   position: relative;
@@ -160,8 +179,8 @@ header {
 
   background:
     linear-gradient(
-      rgba(8,44,32,0.78),
-      rgba(8,44,32,0.82)
+      rgba(5,32,23,0.76),
+      rgba(5,32,23,0.84)
     ),
     url("https://raw.githubusercontent.com/mohammedsufiyan1911-hash/Jamia-Masjid-/main/masjid-night.png");
 
@@ -169,7 +188,8 @@ header {
   background-position: center;
   background-repeat: no-repeat;
 
-  padding: 65px 20px 55px;
+  padding: 70px 20px 55px;
+
   border-bottom: 4px double var(--gold);
 }
 
@@ -178,7 +198,7 @@ header::before {
   display: block;
   color: var(--gold);
   font-size: 22px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 header::after {
@@ -186,115 +206,157 @@ header::after {
   display: block;
   color: var(--gold);
   font-size: 18px;
-  margin-top: 17px;
+  margin-top: 20px;
 }
 
 header h1 {
-  font-size: clamp(29px, 6vw, 45px);
-  letter-spacing: 5px;
-  margin-bottom: 13px;
-  text-shadow: 0 2px 12px #0008;
+  font-size: clamp(30px, 6vw, 48px);
+  letter-spacing: 6px;
+  margin-bottom: 15px;
+  font-weight: normal;
+  text-shadow: 0 3px 15px #0009;
 }
 
 header p {
   color: #e6d4aa;
-  font-size: 15px;
-  letter-spacing: 1px;
-  text-shadow: 0 2px 8px #0008;
+  font-size: 14px;
+  letter-spacing: 2px;
+  line-height: 1.8;
+  text-shadow: 0 2px 8px #0009;
 }
 
-/* NAVIGATION */
+/* ==============================
+   NAVIGATION
+============================== */
 
 nav {
-  background: var(--dark-green);
-  padding: 17px 10px;
+  background: linear-gradient(
+    to bottom,
+    #103b2c,
+    #082c20
+  );
+
+  padding: 15px 10px;
   text-align: center;
   position: sticky;
   top: 0;
   z-index: 5;
+
   border-bottom: 2px solid var(--gold);
-  box-shadow: 0 4px 12px #0002;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
 }
 
 nav a {
   color: #f5e8c8;
   text-decoration: none;
   display: inline-block;
-  margin: 5px 10px;
-  font-size: 14px;
+  margin: 5px 13px;
+  font-size: 13px;
+  letter-spacing: 1px;
   transition: 0.3s;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: 0.3s;
+  transform: translateX(-50%);
 }
 
 nav a:hover {
-  color: #e7c778;
+  color: var(--light-gold);
 }
 
-/* SECTIONS */
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ==============================
+   SECTIONS
+============================== */
 
 section {
-  max-width: 1000px;
+  max-width: 1050px;
   margin: auto;
-  padding: 60px 25px;
+  padding: 65px 28px;
   text-align: center;
-  scroll-margin-top: 75px;
+  scroll-margin-top: 80px;
 }
 
 section h2 {
-  display: block;
   position: relative;
+  display: block;
   color: var(--green);
-  font-size: clamp(27px, 5vw, 38px);
+  font-size: clamp(27px, 5vw, 37px);
+  font-weight: normal;
+  letter-spacing: 0.5px;
   margin-bottom: 30px;
-  padding-bottom: 17px;
+  padding-bottom: 22px;
 }
-
-/* GOLDEN ORNAMENT */
 
 section h2::after {
   content: "✦";
   display: block;
   position: absolute;
   width: 100%;
-  max-width: 550px;
+  max-width: 450px;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -5px;
+  bottom: -3px;
   color: var(--dark-gold);
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1;
+
   background:
     linear-gradient(
       to right,
-      transparent 0%,
-      var(--gold) 10%,
-      var(--gold) 43%,
-      transparent 43%,
-      transparent 57%,
-      var(--gold) 57%,
-      var(--gold) 90%,
-      transparent 100%
+      transparent,
+      var(--gold),
+      transparent
     );
+
   background-size: 100% 1px;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 section p {
-  color: #594b39;
+  color: var(--muted);
   line-height: 1.9;
-  font-size: 16px;
+  font-size: 15px;
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* PRAYER AND BANK CARDS */
+/* ==============================
+   PRAYER AND BANK CARDS
+============================== */
 
 .prayers {
-  max-width: 650px;
-  margin: 25px auto 0;
-  padding: 24px 30px;
-  background: var(--card);
-  border: 1.5px solid var(--gold);
-  border-radius: 28px;
-  box-shadow: 0 5px 18px #8c672918;
+  max-width: 680px;
+  margin: 30px auto 0;
+  padding: 25px 30px;
+
+  background: linear-gradient(
+    145deg,
+    #fbf2df,
+    #f2e5ca
+  );
+
+  border: 1px solid var(--gold);
+  border-radius: 20px;
+
+  box-shadow:
+    0 8px 25px rgba(80,55,20,0.08),
+    inset 0 0 0 4px rgba(189,152,75,0.07);
+
   position: relative;
 }
 
@@ -303,10 +365,12 @@ section p {
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  padding: 15px 8px;
-  border-bottom: 1px solid #d9c69d;
+
+  padding: 15px 10px;
+  border-bottom: 1px solid rgba(189,152,75,0.28);
+
   color: var(--green);
-  font-size: 17px;
+  font-size: 16px;
   transition: background 0.3s ease;
 }
 
@@ -342,7 +406,7 @@ section p {
   white-space: nowrap;
   overflow-wrap: normal;
   text-align: right;
-  font-size: clamp(12px, 3.5vw, 17px);
+  font-size: clamp(12px, 3.5vw, 16px);
 }
 
 /* LOCATION ALIGNMENT */
@@ -366,15 +430,22 @@ section p {
 .location-row a {
   color: var(--dark-gold);
   font-weight: bold;
-  text-decoration: underline;
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 2px;
 }
 
 /* ACTIVE PRAYER */
 
 .prayer-row.active-prayer {
-  background: #e4d0a0;
-  border-radius: 10px;
-  box-shadow: 0 0 12px #bd984b35;
+  background: linear-gradient(
+    90deg,
+    #e8d5a8,
+    #f1e2bf
+  );
+
+  border-radius: 9px;
+  box-shadow: 0 3px 12px #bd984b22;
 }
 
 .prayer-row.active-prayer span {
@@ -384,56 +455,81 @@ section p {
 .prayer-row.active-prayer span:first-child::after {
   content: "  ● NOW";
   color: var(--dark-gold);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: bold;
+  letter-spacing: 0.5px;
 }
 
-/* FACILITIES */
+/* ==============================
+   FACILITIES
+============================== */
 
 .facility-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 23px;
+
   max-width: 900px;
-  margin: 35px auto 0;
+  margin: 38px auto 0;
 }
 
 .facility-card {
   background: var(--card);
-  border: 2px solid var(--gold);
-  border-radius: 25px;
+  border: 1px solid var(--gold);
+  border-radius: 17px;
   overflow: hidden;
-  box-shadow: 0 5px 16px #8c672922;
-  transition: 0.35s;
+
+  box-shadow: 0 7px 20px rgba(65,45,15,0.10);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 .facility-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 9px 22px #8c672940;
+  box-shadow: 0 12px 26px rgba(65,45,15,0.18);
 }
 
 .facility-card img {
   width: 100%;
-  height: 190px;
+  height: 205px;
   object-fit: cover;
   display: block;
   border-bottom: 2px solid var(--gold);
+  transition: transform 0.5s ease;
+}
+
+.facility-card:hover img {
+  transform: scale(1.035);
 }
 
 .facility-card h3 {
-  background: var(--green);
+  background: linear-gradient(
+    to right,
+    #082c20,
+    #174b37,
+    #082c20
+  );
+
   color: #fff4d9;
-  padding: 16px 5px;
-  font-size: 17px;
+  padding: 16px 8px;
+  font-size: 16px;
+  font-weight: normal;
+  letter-spacing: 0.5px;
   border-top: 1px solid var(--light-gold);
 }
 
-/* DONATIONS */
+/* ==============================
+   DONATIONS
+============================== */
 
 #donate h3 {
   color: var(--green);
-  font-size: 22px;
-  margin-top: 30px;
+  font-size: 20px;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+  margin-top: 32px;
   margin-bottom: 12px;
 }
 
@@ -442,21 +538,31 @@ section p {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 18px;
-  margin: 28px auto;
+  gap: 17px;
+  margin: 30px auto;
 }
 
 .payment-card {
-  background: #fffaf0;
+  background: linear-gradient(
+    145deg,
+    #fffdf7,
+    #f4ead7
+  );
+
   padding: 18px 12px;
-  border: 1.5px solid var(--gold);
-  border-radius: 17px;
-  width: 115px;
-  min-height: 120px;
+  border: 1px solid var(--gold);
+  border-radius: 15px;
+
+  width: 112px;
+  min-height: 115px;
+
   text-decoration: none;
   color: var(--green);
-  box-shadow: 0 3px 12px #8c67291a;
+
+  box-shadow: 0 5px 15px #8c67291a;
+
   transition: 0.3s;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -465,86 +571,125 @@ section p {
 
 .payment-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 16px #8c672933;
+  box-shadow: 0 9px 20px #8c672933;
+  border-color: var(--dark-gold);
 }
 
 .payment-card img {
-  width: 43px;
-  height: 43px;
+  width: 42px;
+  height: 42px;
   object-fit: contain;
-  margin-bottom: 10px;
+  margin-bottom: 11px;
 }
 
 .payment-card span {
   font-family: Arial, sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: bold;
 }
 
 #donate hr {
   border: 0;
-  height: 1.5px;
+  height: 1px;
+
   background: linear-gradient(
     to right,
     transparent,
     var(--gold),
     transparent
   );
-  margin: 40px auto;
+
+  margin: 42px auto;
   max-width: 600px;
 }
 
 /* UPI ID */
 
 .upi-details {
-  margin-top: 15px;
+  margin-top: 18px;
   color: var(--dark-gold);
   font-weight: bold;
+  line-height: 1.9;
   overflow-wrap: anywhere;
 }
 
-/* FOOTER WITH CIRCULAR PHOTOS */
+/* ==============================
+   CONTACT
+============================== */
+
+#contact .prayers {
+  max-width: 680px;
+}
+
+/* ==============================
+   FOOTER
+============================== */
 
 footer {
   position: relative;
-  background: var(--dark-green);
+
+  background: linear-gradient(
+    135deg,
+    #061f17,
+    #123d2e,
+    #061f17
+  );
+
   color: #f1e2bd;
   text-align: center;
-  padding: 25px 70px;
-  min-height: 105px;
+
+  padding: 30px 75px;
+  min-height: 115px;
+
   line-height: 2;
   border-top: 4px double var(--gold);
   letter-spacing: 1px;
+  font-size: 13px;
 }
 
 .footer-symbol {
   color: var(--gold);
-  font-size: 17px;
-  margin-bottom: 5px;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+footer strong {
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: normal;
 }
 
 .footer-photo {
   position: absolute;
-  bottom: 10px;
-  width: 48px;
-  height: 48px;
+  bottom: 12px;
+
+  width: 49px;
+  height: 49px;
+
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid var(--gold);
+
+  border: 2px solid var(--gold);
   padding: 2px;
+
   background: var(--dark-green);
-  box-shadow: 0 0 0 1px var(--light-gold);
+
+  box-shadow:
+    0 0 0 3px rgba(189,152,75,0.15),
+    0 4px 12px #0005;
 }
 
 .footer-photo.left {
-  left: 12px;
+  left: 15px;
 }
 
 .footer-photo.right {
-  right: 12px;
+  right: 15px;
 }
 
-/* MOBILE DESIGN */
+/* ==============================
+   MOBILE DESIGN
+============================== */
 
 @media (max-width: 600px) {
 
@@ -561,7 +706,7 @@ footer {
   }
 
   header {
-    padding: 48px 15px;
+    padding: 48px 15px 40px;
     background-position: center;
   }
 
@@ -569,17 +714,22 @@ footer {
     letter-spacing: 3px;
   }
 
+  header p {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
   nav {
-    padding: 12px 5px;
+    padding: 11px 3px;
   }
 
   nav a {
-    font-size: 12px;
-    margin: 5px 6px;
+    font-size: 11px;
+    margin: 5px 7px;
   }
 
   section {
-    padding: 45px 17px;
+    padding: 48px 17px;
   }
 
   section h2 {
@@ -587,31 +737,36 @@ footer {
   }
 
   section p {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .prayers {
-    padding: 18px 16px;
-    border-radius: 22px;
+    padding: 17px 14px;
+    border-radius: 17px;
   }
 
   .prayer-row {
-    font-size: 15px;
-    padding: 14px 5px;
+    font-size: 14px;
+    padding: 14px 6px;
   }
 
   .facility-grid {
-    grid-template-columns: 1fr;
-    max-width: 350px;
-    gap: 22px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .facility-card {
+    border-radius: 13px;
   }
 
   .facility-card img {
-    height: 200px;
+    height: 125px;
   }
 
   .facility-card h3 {
-    font-size: 18px;
+    font-size: 12px;
+    padding: 12px 4px;
   }
 
   .payment-options {
@@ -619,19 +774,38 @@ footer {
   }
 
   .payment-card {
-    width: 100px;
+    width: 95px;
+    min-height: 105px;
+    padding: 13px 8px;
+  }
+
+  .payment-card img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .payment-card span {
+    font-size: 11px;
+  }
+
+  .bank-details .prayer-row span:last-child {
+    font-size: 11px;
   }
 
   footer {
-    padding: 22px 60px;
-    min-height: 95px;
-    font-size: 12px;
+    padding: 25px 55px;
+    min-height: 100px;
+    font-size: 11px;
+  }
+
+  footer strong {
+    font-size: 13px;
   }
 
   .footer-photo {
-    width: 38px;
-    height: 38px;
-    bottom: 10px;
+    width: 37px;
+    height: 37px;
+    bottom: 12px;
   }
 
   .footer-photo.left {
@@ -643,12 +817,35 @@ footer {
   }
 
   .footer-symbol {
-    font-size: 13px;
+    font-size: 12px;
   }
 
 }
 
+/* VERY SMALL SCREENS */
+
+@media (max-width: 350px) {
+
+  .facility-grid {
+    grid-template-columns: 1fr;
+    max-width: 280px;
+  }
+
+  .facility-card img {
+    height: 175px;
+  }
+
+  nav a {
+    margin: 5px;
+    font-size: 10px;
+  }
+
+}
+
+/* ACCESSIBILITY */
+
 @media (prefers-reduced-motion: reduce) {
+
   html {
     scroll-behavior: auto;
   }
@@ -659,6 +856,7 @@ footer {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+
 }
 
 </style>
@@ -904,7 +1102,7 @@ footer {
 
     </div>
 
-    <p style="margin-top:20px;">
+    <p style="margin-top:22px;">
       May Allah reward you for your generosity.
     </p>
 
@@ -996,98 +1194,4 @@ document.addEventListener("DOMContentLoaded", function () {
     music.volume = 0.02;
 
     music.play().catch(function (error) {
-      console.log("Audio could not start:", error);
-    });
-
-    intro.classList.add("lit");
-
-    setTimeout(function () {
-      intro.classList.add("hide");
-      website.classList.add("show");
-    }, 3000);
-
-    setTimeout(function () {
-      intro.style.display = "none";
-    }, 5200);
-
-  });
-
-  /* STOP MUSIC WHEN VISITOR SWITCHES TABS OR APPS */
-
-  document.addEventListener("visibilitychange", function () {
-
-    if (document.hidden) {
-      music.pause();
-    }
-
-  });
-
-  /* STOP MUSIC WHEN VISITOR LEAVES THE PAGE */
-
-  window.addEventListener("pagehide", function () {
-    music.pause();
-  });
-
-  /* AUTOMATIC NAMAZ HIGHLIGHT */
-
-  function updatePrayerHighlight() {
-
-    const now = new Date();
-
-    const currentMinutes =
-      now.getHours() * 60 + now.getMinutes();
-
-    const isFriday = now.getDay() === 5;
-
-    const jumuahActive =
-      isFriday &&
-      currentMinutes >= 750 &&
-      currentMinutes < 840;
-
-    const prayers = [
-      { id: "fajr", start: 295, end: 377 },
-      { id: "dhuhr", start: 723, end: 964 },
-      { id: "jumuah", start: 750, end: 840, fridayOnly: true },
-      { id: "asr", start: 964, end: 1074 },
-      { id: "maghrib", start: 1077, end: 1152 },
-      { id: "isha", start: 1152, end: 295 }
-    ];
-
-    prayers.forEach(function (prayer) {
-
-      const element = document.getElementById(prayer.id);
-
-      if (!element) return;
-
-      let active =
-        (!prayer.fridayOnly || isFriday) &&
-        (
-          prayer.start < prayer.end
-            ? currentMinutes >= prayer.start &&
-              currentMinutes < prayer.end
-            : currentMinutes >= prayer.start ||
-              currentMinutes < prayer.end
-        );
-
-      /* JUMU'AH TAKES PRIORITY OVER DHUHR ON FRIDAY */
-
-      if (prayer.id === "dhuhr" && jumuahActive) {
-        active = false;
-      }
-
-      element.classList.toggle("active-prayer", active);
-
-    });
-
-  }
-
-  updatePrayerHighlight();
-
-  setInterval(updatePrayerHighlight, 30000);
-
-});
-
-</script>
-
-</body>
-</html>
+      console.log("Audio could not start:", 
