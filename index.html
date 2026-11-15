@@ -272,7 +272,7 @@ section p {
   font-size: 16px;
 }
 
-/* DECORATIVE CARD STYLE */
+/* PRAYER AND BANK CARDS */
 
 .prayers {
   max-width: 650px;
@@ -415,13 +415,6 @@ section p {
   border-top: 1px solid var(--light-gold);
 }
 
-.facility-description {
-  padding: 12px 14px 16px;
-  color: #594b39;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
 /* DONATIONS */
 
 #donate h3 {
@@ -497,22 +490,45 @@ section p {
   overflow-wrap: anywhere;
 }
 
-/* FOOTER */
+/* FOOTER WITH SMALL CIRCULAR PHOTOS */
 
 footer {
+  position: relative;
   background: var(--dark-green);
   color: #f1e2bd;
   text-align: center;
-  padding: 35px 15px;
+  padding: 25px 70px;
+  min-height: 105px;
   line-height: 2;
   border-top: 4px double var(--gold);
   letter-spacing: 1px;
 }
 
-footer .footer-symbol {
+.footer-symbol {
   color: var(--gold);
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 17px;
+  margin-bottom: 5px;
+}
+
+.footer-photo {
+  position: absolute;
+  bottom: 10px;
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  padding: 2px;
+  background: var(--dark-green);
+  box-shadow: 0 0 0 1px var(--light-gold);
+}
+
+.footer-photo.left {
+  left: 12px;
+}
+
+.footer-photo.right {
+  right: 12px;
 }
 
 /* MOBILE RESPONSIVE DESIGN */
@@ -590,6 +606,30 @@ footer .footer-symbol {
 
   .payment-card {
     width: 100px;
+  }
+
+  footer {
+    padding: 22px 60px;
+    min-height: 95px;
+    font-size: 12px;
+  }
+
+  .footer-photo {
+    width: 38px;
+    height: 38px;
+    bottom: 10px;
+  }
+
+  .footer-photo.left {
+    left: 8px;
+  }
+
+  .footer-photo.right {
+    right: 8px;
+  }
+
+  .footer-symbol {
+    font-size: 13px;
   }
 
 }
@@ -768,9 +808,16 @@ footer .footer-symbol {
         <img
           src="boys-accommodation.jpg"
           alt="Boys' accommodation rooms">
-
         <h3>Boys' Accommodation</h3>
+      </div>
 
+      <!-- LADIES' PRAYER ROOM -->
+
+      <div class="facility-card">
+        <img
+          src="ladies-prayer-room.jpg"
+          alt="Ladies' Prayer Room">
+        <h3>Ladies' Prayer Room</h3>
       </div>
 
     </div>
@@ -909,31 +956,33 @@ footer .footer-symbol {
   </section>
 
   <!-- FOOTER -->
-  
-  <footer>
+
   <footer>
 
-  <img
-    src="footer-left.jpg"
-    alt="Jamia Masjid"
-    class="footer-photo left"
-  >
+    <!-- LEFT CIRCULAR PHOTO -->
+    <img
+      src="footer-left.jpg"
+      alt="Jamia Masjid"
+      class="footer-photo left">
 
-  <div class="footer-content">
-    <div class="footer-center">
-      <h3>JAMIA MASJID</h3>
-      <p>May Allah bless our community.</p>
+    <div class="footer-symbol">
+      ✦ ━━━━━━━━━ ✦
     </div>
-  </div>
 
-  <img
-    src="footer-right.jpg"
-    alt="Jamia Masjid"
-    class="footer-photo right"
-  >
+    <strong>JAMIA MASJID</strong>
+
+    <br>
+
+    May Allah bless our community.
+
+    <!-- RIGHT CIRCULAR PHOTO -->
+    <img
+      src="footer-right.jpg"
+      alt="Jamia Masjid"
+      class="footer-photo right">
 
   </footer>
-    
+
 </div>
 
 <!-- JAVASCRIPT -->
